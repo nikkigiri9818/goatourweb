@@ -96,36 +96,12 @@
 
 
 
-
-import { Manrope, Work_Sans, Kalam } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import "slick-carousel/slick/slick.css";
 import "./assets/main.css";
 
-const manrope = Manrope({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--body-color-font',
-  display: 'swap',
-});
-
-const work_sans = Work_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--work-sans-font',
-  display: 'swap',
-});
-
-const kalam = Kalam({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--heading-font',
-  display: 'swap',
-});
-
 const BRAND = 'Goa Holiday Tours';
-
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
@@ -188,7 +164,6 @@ export const metadata = {
   },
 };
 
-// Travel Agency structured data
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'TravelAgency',
@@ -199,18 +174,17 @@ const structuredData = {
   areaServed: 'Goa, India',
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
-
       <head>
         <meta name="author" content={BRAND} />
 
-        <link
-          rel="icon"
-          href="/favicon.ico"
-          sizes="any"
-        />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
 
         <script
           type="application/ld+json"
@@ -220,12 +194,9 @@ export default function RootLayout({ children }) {
         />
       </head>
 
-      <body
-        className={`${manrope.variable} ${work_sans.variable} ${kalam.variable}`}
-      >
+      <body>
         {children}
       </body>
-
     </html>
   );
 }

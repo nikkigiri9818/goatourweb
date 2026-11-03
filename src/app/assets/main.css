@@ -6,6 +6,7 @@ Description: Turmet - Travel & Tour Agency Nextjs Template
 Version: 1.0.0
 */
 /*CSS Table Of Content Ends Here*/
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Work+Sans:wght@400;500;600;700;800&family=Kalam:wght@400;700&display=swap');
 
 :root {
   --body: #fff;
@@ -105,7 +106,7 @@ Version: 1.0.0
     Template Default Fonts & Fonts Styles
  ---------------------------------------------- */
 body {
-  font-family: var(--body-color-font), sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 28px;
@@ -115,7 +116,6 @@ body {
   margin: 0;
   overflow-x: hidden;
 }
-
 
 ul {
   padding: 0;
