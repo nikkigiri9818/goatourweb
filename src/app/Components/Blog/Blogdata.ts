@@ -8,7 +8,7 @@ export const blogPosts = [
     excerpt: "Goa has two airports and four railway stations. Mopa for North Goa, Dabolim for South.",
     date: "2026-11-01",
     dateLabel: "01/11/2026",
-    img: "/assets/img/news/08.jpg",
+    img: "/assets/img/hero/sunsetgoaimages.webp",
   },
   {
     slug: "whats-included-in-a-goa-tour-package",
@@ -16,7 +16,7 @@ export const blogPosts = [
     excerpt: "Pickup and drop, hotel with a pool, daily breakfast, private-vehicle sightseeing, dinner cruise. Here is exactly what is inside a Goa package and what is not.",
     date: "2026-10-25",
     dateLabel: "25/10/2026",
-    img: "/assets/img/news/09.jpg",
+    img: "/assets/img/goa/waterfallimges.jpg",
   },
   {
     slug: "best-time-to-visit-goa",
@@ -24,7 +24,7 @@ export const blogPosts = [
     excerpt: "November to February is the main season, October is the underrated one, and the monsoon closes the sea. Here is the honest month by month picture.",
     date: "2026-10-18",
     dateLabel: "18/10/2026",
-    img: "/assets/img/news/10.jpg",
+    img: "/assets/img/hero/herothree.jpg",
   },
   {
     slug: "north-goa-or-south-goa-where-to-stay",
@@ -32,7 +32,7 @@ export const blogPosts = [
     excerpt: "North Goa is busy and walkable. South Goa is quiet and spacious.",
     date: "2026-10-11",
     dateLabel: "11/10/2026",
-    img: "/assets/img/news/11.jpg",
+    img: "/assets/img/hero/herotwo.jpg",
   },
   {
     slug: "what-water-sports-in-goa-cost",
@@ -40,7 +40,7 @@ export const blogPosts = [
     excerpt: "Beach operators quote around ₹1,000 per activity. A five-activity combo is ₹2,000. Where the gap comes from and which extra charges to watch for.",
     date: "2026-08-28",
     dateLabel: "28/08/2026",
-    img: "/assets/img/news/12.jpg",
+    img: "/assets/img/goa/sportsbeach.jpg",
   },
   {
     slug: "scuba-diving-in-south-goa",
@@ -48,7 +48,7 @@ export const blogPosts = [
     excerpt: "Nearly all diving in Goa happens at Grande Island in South Goa, but you can stay in North Goa and still do it.",
     date: "2026-08-28",
     dateLabel: "28/08/2026",
-    img: "/assets/img/news/13.jpg",
+    img: "/assets/img/goa/scuba.jpg",
   },
   {
     slug: "goa-in-3-4-or-5-days",
@@ -56,7 +56,7 @@ export const blogPosts = [
     excerpt: "Three, four and five-day Goa trips are genuinely different holidays. What each length covers and what it costs.",
     date: "2026-08-28",
     dateLabel: "28/08/2026",
-    img: "/assets/img/news/08.jpg",
+    img: "/assets/img/goa/flyboardingimges.webp",
   },
   {
     slug: "top-11-things-to-do-in-goa",
@@ -64,6 +64,6 @@ export const blogPosts = [
     excerpt: "Beaches, forts, markets, cruises and dives, the eleven things worth building a Goa trip around, and roughly what each one costs.",
     date: "2022-08-25",
     dateLabel: "25/08/2022",
-    img: "/assets/img/news/09.jpg",
+    img: "/assets/img/goa/bungeejumping.jpg",
   },
 ];

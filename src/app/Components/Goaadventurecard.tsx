@@ -80,7 +80,7 @@ const GoaAdventureCard = ({ item, index = 0 }) => {
           background: rgba(28, 168, 203, 0.1);
         }
 
-        .gac-bottom { margin-top: auto; padding-top: 18px; border-top: 1px dashed #dfe7ea; }
+        .gac-bottom { margin-top: auto; padding-top: 5px; border-top: 1px dashed #dfe7ea; }
         .gac-price { margin-bottom: 16px; color: #6b7a82; font-size: 14px; }
         .gac-price strong { font-size: 28px; line-height: 1; color: #1b1b1b; }
         .gac-price b { color: #1b1b1b; font-size: 17px; }
@@ -148,9 +148,9 @@ const GoaAdventureCard = ({ item, index = 0 }) => {
               <Link href={href} className="gac-btn">
                 View Details <i className="fa-solid fa-arrow-right"></i>
               </Link>
-              <a href={wa} target="_blank" rel="noopener noreferrer" className="gac-wa" aria-label={`Book ${item.title} on WhatsApp`}>
+              {/* <a href={wa} target="_blank" rel="noopener noreferrer" className="gac-wa" aria-label={`Book ${item.title} on WhatsApp`}>
                 <i className="fa-brands fa-whatsapp"></i>
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

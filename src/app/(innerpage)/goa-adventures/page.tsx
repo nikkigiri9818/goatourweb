@@ -6,7 +6,7 @@ export default function GoaAdventuresPage() {
   return (
     <>
       <BreadCumb
-        bgimg="/assets/img/breadcrumb/breadcrumb.jpg"
+        bgimg="/assets/img/goa/sunsetview.jpg"
         Title="Goa Adventures"
       />
 

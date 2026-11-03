@@ -39,10 +39,10 @@ const reasons = [
 ];
 
 const WhyChooseUs = ({
-  image = "/assets/img/goa-why-choose.jpg", // put your photo here (public folder)
+  image = "/assets/img/goa/waterfallimges.jpg", // put your photo here (public folder)
   imageSide = "left", // "left" or "right"
   contactHref = "/contact",
-  packagesHref = "/packages",
+  packagesHref = "/goa-tour-package",
 }) => (
   <section className="wcu" aria-labelledby="wcu-title">
     <style>{`

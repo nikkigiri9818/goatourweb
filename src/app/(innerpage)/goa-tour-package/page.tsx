@@ -12,10 +12,11 @@ export default function Page() {
   return (
     <>
       <BreadCumb
-        bgimg="/assets/img/breadcrumb/breadcrumb.jpg"
+        bgimg="/assets/img/goa/goabeach.jpg"
         Title="Goa Tour Packages"
       />
       <GoaPackages />
+ 
     </>
   )
 }

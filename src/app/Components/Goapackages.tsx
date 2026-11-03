@@ -92,7 +92,7 @@ const GoaPackages = () => {
 
           <div className="row g-4" key={active}>
             {visible.map((pkg, i) => (
-              <div className="col-xl-4 col-md-6" key={pkg.slug}>
+              <div className="col-xl-4 col-md-6" key={pkg.slug} style={{marginBottom:"28px"}}>
                 <GoaPackageCard pkg={pkg} index={i} />
               </div>
             ))}
@@ -117,3 +117,6 @@ const GoaPackages = () => {
 };
 
 export default GoaPackages;
+
+
+

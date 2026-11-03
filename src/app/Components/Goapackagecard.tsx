@@ -100,7 +100,7 @@ const GoaPackageCard = ({ pkg, index = 0 }) => {
 
         .gpc-bottom {
           margin-top: auto;
-          padding-top: 18px;
+           padding-top: 4px;
           border-top: 1px dashed #dfe7ea;
         }
         .gpc-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; margin-bottom: 16px; }
@@ -186,9 +186,9 @@ const GoaPackageCard = ({ pkg, index = 0 }) => {
               <Link href={href} className="gpc-btn">
                 View Details <i className="fa-solid fa-arrow-right"></i>
               </Link>
-              <a href={wa} target="_blank" rel="noopener noreferrer" className="gpc-wa" aria-label={`Ask about ${pkg.title} on WhatsApp`}>
+              {/* <a href={wa} target="_blank" rel="noopener noreferrer" className="gpc-wa" aria-label={`Ask about ${pkg.title} on WhatsApp`}>
                 <i className="fa-brands fa-whatsapp"></i>
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

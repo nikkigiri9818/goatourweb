@@ -22,7 +22,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
   return (
     <>
-      <BreadCumb bgimg="/assets/img/breadcrumb/breadcrumb.jpg" Title={item.title} />
+      <BreadCumb bgimg={item.image} Title={item.title} />
       <GoaAdventureDetails item={item} />
     </>
   )

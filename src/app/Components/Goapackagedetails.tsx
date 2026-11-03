@@ -396,3 +396,7 @@ const GoaPackageDetails = ({ pkg }) => {
 };
 
 export default GoaPackageDetails;
+
+
+
+

@@ -46,7 +46,7 @@ const About2 = () => {
                             <div className="col-lg-6">
                                 <div className="goa-about-photo">
                                     <Image
-                                        src="/assets/img/about/goa-about.jpg"
+                                        src="/assets/img/goa/flyboardingimges.webp"
                                         className="wow img-custom-anim-left"
                                         alt="Beach holiday in Goa"
                                         width={560}

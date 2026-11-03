@@ -7,7 +7,7 @@ import Link from 'next/link';
 const BRAND = 'Goa Holiday Tours';
 const WHATSAPP_NUMBER = '918287682602';
 const CONTACT = {
-    address: '',   // client ke footer wala address yahan likhein
+    address: 'Holiday beach street, Khobra Vaddo, Calangute, Goa 403516',   // client ke footer wala address yahan likhein
     email: '',     // client ka email yahan likhein
     phones: [{ label: '+91 82876 82602', tel: '+918287682602' }],
 };
@@ -36,6 +36,7 @@ const Footer1 = () => {
     return (
         <footer className="footer-section fix bg-cover" data-background="/assets/img/footer/footer-bg.jpg">
             <div className="container">
+                
                 <div className="footer-widget-wrapper-new">
                     <div className="row">
                         <div className="col-xl-4 col-lg-5 col-md-8 col-sm-6 wow fadeInUp wow" data-wow-delay=".2s">
@@ -111,7 +112,7 @@ const Footer1 = () => {
                         </div>
 
 
-
+                       
 
 
                         <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 ps-xl-5 wow fadeInUp wow" data-wow-delay=".6s">

@@ -33,7 +33,7 @@ const GoaAdventures = () => {
 
           <div className="row g-4">
             {goaAdventures.map((item, i) => (
-              <div className="col-xl-4 col-md-6" key={item.slug}>
+              <div className="col-xl-4 col-md-6" key={item.slug} style={{marginBottom:"25px"}}>
                 <GoaAdventureCard item={item} index={i} />
               </div>
             ))}

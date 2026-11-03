@@ -50,8 +50,7 @@ const Choose1 = () => {
                                             </div>
                                             <div className="content">
                                                 <h5>
-                                                    Everything In <br />
-                                                    One Package
+                                                    Everything In One Package
                                                 </h5>
                                             </div>
                                         </div>
@@ -73,7 +72,7 @@ const Choose1 = () => {
                                             </div>
                                             <div className="content">
                                                 <h5>
-                                                    Adventure You <br />
+                                                    Adventure You
                                                     Can Pre-Book
                                                 </h5>
                                             </div>
@@ -95,7 +94,7 @@ const Choose1 = () => {
                         </div>
                         <div className="col-lg-6">
                             <div className="feature-image wow img-custom-anim-left">
-                                <Image src="/assets/img/goa-choose.png" alt="Travellers enjoying a Goa beach holiday" width={636} height={577} />
+                                <Image src="/assets/img/goa/dudhsagarimages.jpg" alt="Travellers enjoying a Goa beach holiday" width={636} height={577} />
                             </div>
                         </div>
                     </div>

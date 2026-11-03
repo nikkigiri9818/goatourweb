@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   return (
     <>
       <BreadCumb
-        bgimg="/assets/img/breadcrumb/breadcrumb.jpg"
+        bgimg={pkg.image}
         Title={pkg.title}
       />
       <GoaPackageDetails pkg={pkg} />

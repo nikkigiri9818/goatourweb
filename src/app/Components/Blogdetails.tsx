@@ -147,7 +147,7 @@ const BlogDetails = () => {
     <>
       {/* Hero Breadcrumb */}
       <BreadCumb
-        bgimg="/assets/img/breadcrumb/breadcrumb.jpg"
+        bgimg={item.img}
         Title={item.title}
       />
 
@@ -188,18 +188,16 @@ const BlogDetails = () => {
                     </li>
 
                     <li>
-                      <Link href="/goa-tour-packages">
+                      <Link href="/goa-tour-package">
                         Goa Tour Packages
                       </Link>
                     </li>
 
                     <li>
-                      <Link href="/north-goa">North Goa</Link>
+                      <Link href="/goa-adventures">GoaAdventures</Link>
                     </li>
 
-                    <li>
-                      <Link href="/south-goa">South Goa</Link>
-                    </li>
+                   
                   </ul>
                 </div>
 
