@@ -16,6 +16,7 @@ import Instagram2 from '../Components/Instagram/Instagram2';
 import WhyChooseUs from '../Components/Whychooseus';
 import ThingsToDoSlider from '../Components/Thingstodoingoa';
 import TrustStrip from '../Components/Truststrip';
+import GoaSections from '../Components/GoaHighlights';
 
 const page = () => {
     return (
@@ -36,6 +37,7 @@ const page = () => {
             <Faq1/>
             <Counter3/>
              <Blog3/>
+             <GoaSections/>
              
             {/* <Instagram2/>           */}
         </div>

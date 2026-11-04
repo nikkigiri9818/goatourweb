@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 
 type Form1Props = {
@@ -272,6 +273,7 @@ const Form1 = ({ onSelect }: Form1Props) => {
         <div className="container">
           <ul className="goa-trip-tabs">
             {TABS.map((tab, i) => (
+              <Link href={"/goa-tour-package"}>
               <li key={tab.key}>
                 <button
                   type="button"
@@ -297,6 +299,7 @@ const Form1 = ({ onSelect }: Form1Props) => {
                   )}
                 </button>
               </li>
+              </Link>
             ))}
           </ul>
         </div>

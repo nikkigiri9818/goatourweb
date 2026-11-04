@@ -7,6 +7,7 @@ import Team1 from '../../Components/Team/Team1';
 import Testimonial3 from '../../Components/Testimonial/Testimonial3';
 import Instagram2 from '../../Components/Instagram/Instagram2';
 import ContactUs from '../../Components/ContactUs';
+import GoaSections from '../../Components/GoaHighlights';
 
 const page = () => {
   return (
@@ -23,8 +24,9 @@ const page = () => {
             {/* <Instagram2></Instagram2>    
                      */}
 
-                     
+
                      <ContactUs/>
+                     <GoaSections/>
     </div>
   );
 };

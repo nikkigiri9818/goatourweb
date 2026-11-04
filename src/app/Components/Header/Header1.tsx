@@ -159,7 +159,6 @@
 // }
  
 
-
 "use client"
 import { useEffect, useState } from 'react';
 import Nav from './Nav';
@@ -245,6 +244,35 @@ export default function Header1({ variant }: any) {
         }
         .cs_site_header .theme-btn i{transition:transform .25s}
         .cs_site_header .theme-btn:hover i{transform:translateX(4px)}
+
+        /* ================= LAPTOP / SMALL DESKTOP (1200-1599px): menu aur button ke beech gap ================= */
+        @media (min-width: 1200px) and (max-width: 1599px) {
+          .cs_site_header .container-fluid{padding-left:40px !important;padding-right:40px !important}
+          .cs_site_header .cs_main_header_in{gap:24px}
+
+          .cs_site_branding img,
+          .cs_site_header .cs_site_branding img,
+          .header_style_2 .cs_site_branding img{height:80px !important}
+          .cs_site_header.cs-gescout_sticky .cs_site_branding img{height:64px !important}
+
+          .cs_site_header .cs_main_header_left{flex:0 0 auto}
+          .cs_site_header .cs_main_header_center{flex:1 1 auto;min-width:0;display:flex;justify-content:center}
+          .cs_site_header .cs_main_header_right{flex:0 0 auto;margin-left:24px !important}
+
+          .cs_site_header .cs_nav .cs_nav_list{display:flex;flex-wrap:nowrap;align-items:center;gap:6px}
+          .cs_site_header .cs_nav .cs_nav_list > li{margin:0 !important}
+          .cs_site_header .cs_nav .cs_nav_list > li > a{
+            padding:10px 12px !important;
+            font-size:15px !important;
+            white-space:nowrap;
+          }
+
+          .cs_site_header .theme-btn{
+            padding:14px 24px !important;
+            font-size:15px !important;
+            white-space:nowrap;
+          }
+        }
 
         /* ================= MOBILE / TABLET (<=1199px, 1024 included) ================= */
         .gh-toggle{display:none}
