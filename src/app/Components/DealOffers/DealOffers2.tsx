@@ -87,7 +87,7 @@ const DealOffers2 = () => {
         <>
             <style>{`
                 /* slides ke beech gap aur sab cards ki height barabar */
-                .dof-slider .slick-list { margin: 0 -12px; padding: 20px 0 30px; }
+                .dof-slider .slick-list { margin: 0 -12px; padding: 20px 0 30px;margin-bottom:45px; }
                 .dof-slider .slick-slide { height: auto; }
                 .dof-slider .slick-slide > div { padding: 0 12px; height: 100%; }
                 .dof-slider .slick-track { display: flex; }
