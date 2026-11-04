@@ -204,14 +204,14 @@ const HeroBanner3 = () => {
                     overflow: hidden;
                 }
 
-                // .hero-section.hero-3 .hero-image::before {
-                //     content: "";
-                //     position: absolute;
-                //     inset: 0;
-                //     background: rgba(0, 0, 0, 0.45);
-                //     z-index: 1;
-                //     pointer-events: none;
-                // }
+//                .hero-section.hero-3 .hero-image::before {
+//     content: "";
+//     position: absolute;
+//     inset: 0;
+//     background: rgba(0, 0, 0, 0.2); /* Reduced overlay */
+//     z-index: 1;
+//     pointer-events: none;
+// }
 
                 .hero-section.hero-3 .container {
                     position: relative;

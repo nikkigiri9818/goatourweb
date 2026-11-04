@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -8,13 +7,43 @@ import { articles } from "../Components/blogArticles";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 
+// ---- Yahan sirf ye 2 cheezein badalni hain ----
+// 1. Client ka asli WhatsApp number (country code ke saath, bina + ya space ke). Abhi nakli number hai.
+const WHATSAPP_NUMBER = "919999999999";
+
+// 2. Agar kisi blog ka slug article ki key se alag hai, to yahan jodein:  "listing-ka-slug": "articles-ki-key"
+const SLUG_ALIASES: Record<string, string> = {
+  "north-goa-or-south-goa-where-to-stay": "north-goa-or-south-goa",
+};
+// -----------------------------------------------
+
+const whatsappLink = (text: string) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+
+// Pehle seedha slug, phir alias, phir shuruaat ke mel se article dhoondhta hai.
+const getArticle = (slug: string) => {
+  const map = articles as Record<string, any>;
+  if (map[slug]) return map[slug];
+  if (SLUG_ALIASES[slug] && map[SLUG_ALIASES[slug]]) return map[SLUG_ALIASES[slug]];
+
+  const key = Object.keys(map).find(
+    (k) => slug.startsWith(k) || k.startsWith(slug)
+  );
+  return key ? map[key] : undefined;
+};
+
 const BlogDetails = () => {
   const params = useParams<{ slug: string }>();
   const slug = params.slug;
 
   const item = blogPosts.find((blog) => blog.slug === slug);
+  const article = getArticle(slug);
 
-  const article = (articles as Record<string, any>)[slug];
+  if (process.env.NODE_ENV !== "production" && item && !article) {
+    console.warn(
+      `[Blog] "${slug}" ke liye article nahi mila. blogArticles mein key ya SLUG_ALIASES mein alias jodein.`
+    );
+  }
 
   if (!item) {
     return (
@@ -122,7 +151,7 @@ const BlogDetails = () => {
             <p>{block.text}</p>
 
             <a
-              href="https://wa.me/919999999999"
+              href={whatsappLink(`Hello, I read "${item.title}" and want to plan a Goa trip.`)}
               target="_blank"
               rel="noopener noreferrer"
               className="blog-cta-button"
@@ -131,7 +160,8 @@ const BlogDetails = () => {
             </a>
 
             {block.linkText && (
-              <Link href="/blog" className="blog-cta-link">
+              // linkHref nahi diya to packages page par jayega (pehle hamesha /blog par jata tha)
+              <Link href={block.linkHref || "/goa-tour-package"} className="blog-cta-link">
                 {block.linkText}
               </Link>
             )}
@@ -146,10 +176,7 @@ const BlogDetails = () => {
   return (
     <>
       {/* Hero Breadcrumb */}
-      <BreadCumb
-        bgimg={item.img}
-        Title={item.title}
-      />
+      <BreadCumb bgimg={item.img} Title={item.title} />
 
       {/* Blog Details */}
       <section className="blog-details-section">
@@ -160,11 +187,11 @@ const BlogDetails = () => {
               <article className="blog-details-content">
                 <h1 className="blog-main-title">{item.title}</h1>
 
-               {item.img && (
-  <div className="blog-featured-image">
-    <img src={item.img} alt={item.title} />
-  </div>
-)}
+                {item.img && (
+                  <div className="blog-featured-image">
+                    <img src={item.img} alt={item.title} />
+                  </div>
+                )}
 
                 {article?.blocks?.length > 0 ? (
                   article.blocks.map((block: any, index: number) =>
@@ -186,18 +213,12 @@ const BlogDetails = () => {
                     <li>
                       <Link href="/blog">All Blogs</Link>
                     </li>
-
                     <li>
-                      <Link href="/goa-tour-package">
-                        Goa Tour Packages
-                      </Link>
+                      <Link href="/goa-tour-package">Goa Tour Packages</Link>
                     </li>
-
                     <li>
-                      <Link href="/goa-adventures">GoaAdventures</Link>
+                      <Link href="/goa-adventures">Goa Adventures</Link>
                     </li>
-
-                   
                   </ul>
                 </div>
 
@@ -210,7 +231,7 @@ const BlogDetails = () => {
                   </p>
 
                   <a
-                    href="https://wa.me/919999999999"
+                    href={whatsappLink("Hello, I want to plan a Goa trip. Please help me with the details.")}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="blog-sidebar-button"
@@ -224,7 +245,7 @@ const BlogDetails = () => {
         </div>
       </section>
 
-      {/* CSS */}
+      {/* CSS (rang ab site ke theme se aate hain) */}
       <style>{`
         .blog-details-section {
           padding: 70px 0;
@@ -271,7 +292,7 @@ const BlogDetails = () => {
         .blog-featured-image img {
           width: 100%;
           height: auto;
-          border-radius: 8px;
+          border-radius: 12px;
           display: block;
         }
 
@@ -289,18 +310,18 @@ const BlogDetails = () => {
 
         .blog-content-table th,
         .blog-content-table td {
-          border: 1px solid #ddd;
+          border: 1px solid #dfe8ec;
           padding: 14px;
           text-align: left;
         }
 
         .blog-content-table th {
-          background: #f5f5f5;
+          background: rgba(var(--theme-rgb, 10, 156, 180), 0.1);
           font-weight: 700;
         }
 
         .blog-content-table tr:nth-child(even) {
-          background: #fafafa;
+          background: #f7fbfc;
         }
 
         .blog-choices {
@@ -310,9 +331,9 @@ const BlogDetails = () => {
         .blog-choice-item {
           padding: 18px;
           margin-bottom: 15px;
-          background: #f8f8f8;
-          border-left: 4px solid #e89b35;
-          border-radius: 5px;
+          background: #f5fafb;
+          border-left: 4px solid var(--theme, #0a9cb4);
+          border-radius: 8px;
         }
 
         .blog-choice-item h3 {
@@ -326,11 +347,11 @@ const BlogDetails = () => {
         }
 
         .blog-note {
-          background: #fff8e8;
-          border-left: 4px solid #e89b35;
+          background: rgba(var(--theme-rgb, 10, 156, 180), 0.08);
+          border-left: 4px solid var(--theme, #0a9cb4);
           padding: 20px;
           margin: 25px 0;
-          border-radius: 5px;
+          border-radius: 8px;
         }
 
         .blog-note p {
@@ -348,10 +369,14 @@ const BlogDetails = () => {
         }
 
         .blog-faq-item {
-          border: 1px solid #ddd;
+          border: 1px solid #dfe8ec;
           padding: 15px 20px;
           margin-bottom: 12px;
-          border-radius: 5px;
+          border-radius: 10px;
+        }
+
+        .blog-faq-item[open] {
+          border-color: var(--theme, #0a9cb4);
         }
 
         .blog-faq-item summary {
@@ -366,10 +391,10 @@ const BlogDetails = () => {
         }
 
         .blog-cta {
-          background: #f8f8f8;
+          background: rgba(var(--theme-rgb, 10, 156, 180), 0.08);
           padding: 35px;
           margin-top: 40px;
-          border-radius: 8px;
+          border-radius: 14px;
           text-align: center;
         }
 
@@ -386,23 +411,27 @@ const BlogDetails = () => {
         .blog-cta-button,
         .blog-sidebar-button {
           display: inline-block;
-          padding: 12px 25px;
-          background: #e89b35;
+          padding: 12px 28px;
+          background: var(--theme, #0a9cb4);
           color: #fff;
           text-decoration: none;
-          border-radius: 5px;
+          border-radius: 100px;
           font-weight: 600;
+          transition: filter .3s, box-shadow .3s;
         }
 
         .blog-cta-button:hover,
         .blog-sidebar-button:hover {
-          background: #cc8120;
+          filter: brightness(0.92);
+          box-shadow: 0 8px 18px rgba(var(--theme-rgb, 10, 156, 180), 0.3);
           color: #fff;
         }
 
         .blog-cta-link {
           display: block;
           margin-top: 15px;
+          color: var(--theme, #0a9cb4);
+          font-weight: 600;
         }
 
         .blog-sidebar {
@@ -412,8 +441,8 @@ const BlogDetails = () => {
 
         .blog-sidebar-widget {
           padding: 25px;
-          border: 1px solid #eee;
-          border-radius: 8px;
+          border: 1px solid #e6eef1;
+          border-radius: 14px;
           margin-bottom: 25px;
         }
 
@@ -430,12 +459,17 @@ const BlogDetails = () => {
 
         .blog-sidebar-widget ul li {
           padding: 10px 0;
-          border-bottom: 1px solid #eee;
+          border-bottom: 1px solid #eef3f5;
         }
 
         .blog-sidebar-widget ul li a {
           text-decoration: none;
           color: #333;
+          transition: color .3s;
+        }
+
+        .blog-sidebar-widget ul li a:hover {
+          color: var(--theme, #0a9cb4);
         }
 
         .blog-sidebar-widget p {

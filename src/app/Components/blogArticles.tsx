@@ -60,7 +60,7 @@ export const articles = {
   },
 
   // 2. What Is Included in Goa Tour Package
-  'what-is-included-goa-tour-package': {
+  'whats-included-in-a-goa-tour-package': {
     blocks: [
       {
         type: 'lead',
@@ -272,7 +272,7 @@ export const articles = {
   },
 
   // 5. Goa Water Sports Price
-  'goa-water-sports-price': {
+  'what-water-sports-in-goa-cost': {
     blocks: [
       {
         type: 'lead',
@@ -352,7 +352,7 @@ export const articles = {
   },
 
   // 6. Scuba Diving South Goa
-  'scuba-diving-south-goa': {
+  'scuba-diving-in-south-goa': {
     blocks: [
       {
         type: 'lead',
@@ -440,7 +440,7 @@ export const articles = {
   },
 
   // 7. Goa 3, 4 or 5 Days
-  'goa-3-4-or-5-days': {
+  'goa-in-3-4-or-5-days': {
     blocks: [
       {
         type: 'lead',
@@ -545,7 +545,7 @@ export const articles = {
   },
 
   // 8. Things to Do in Goa
-  'things-to-do-in-goa': {
+  'top-11-things-to-do-in-goa': {
     blocks: [
       {
         type: 'lead',

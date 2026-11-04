@@ -148,13 +148,13 @@ const ThingsToDoSlider = () => {
         .tdg-body h3{transition:color .3s}
         .tdg-card:hover .tdg-body h3{color:var(--cyan-d)}
         .tdg-body p{flex:1;margin:0 0 24px;font-size:15.5px;line-height:1.75;color:var(--muted)}
-        .tdg-btn{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;background:var(--ink);
+        .tdg-btn{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;background:#1aa7ca;
           color:#fff;padding:13px 24px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;
           transition:background .25s,transform .25s,box-shadow .25s}
         .tdg-btn svg{transition:transform .3s}
         .tdg-btn:hover svg{transform:translateX(6px)}
         .tdg-btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(26,167,202,.4)}
-        .tdg-btn:hover{background:var(--cyan);color:#fff}
+        .tdg-btn:hover{background:black;color:#fff}
 
         .tdg .slick-dots{position:static;display:flex !important;flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px;list-style:none;margin:28px 0 0;padding:0}
         .tdg .slick-dots li{display:block;width:auto;height:auto;margin:0;padding:0}

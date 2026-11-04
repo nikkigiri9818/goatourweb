@@ -8,8 +8,8 @@ const BRAND = 'Goa Holiday Tours';
 const WHATSAPP_NUMBER = '918287682602';
 const CONTACT = {
     address: 'Holiday beach street, Khobra Vaddo, Calangute, Goa 403516',   // client ke footer wala address yahan likhein
-    email: '',     // client ka email yahan likhein
-    phones: [{ label: '+91 82876 82602', tel: '+918287682602' }],
+    email: 'test@gmail.com',     // client ka email yahan likhein
+    phones: [{ label: '+91 ########', tel: '+91 #######' }],
 };
 const SOCIAL = {
     facebook: '',  // Facebook page ka poora link
@@ -47,7 +47,7 @@ const Footer1 = () => {
                                         <img
                                             src="/assets/img/logo/goaholidaytours-logo-transparent.png"
                                             alt={`${BRAND} logo`}
-                                            style={{ display: 'block', margin: '0 auto', width: '100%', maxWidth: '220px', height: 'auto' }}
+                                            style={{ display: 'block', margin: '0 auto', width: '100%', maxWidth: '85px', height: 'auto' }}
                                         />
                                     </Link>
                                 </div>
@@ -55,7 +55,7 @@ const Footer1 = () => {
                                     <h3>Plan Your Goa Trip</h3>
                                     <p>Share your number and we will message you the best package.</p>
                                     <form className="footer-input" onSubmit={handleQuote}>
-                                        <input
+                                        {/* <input
                                             type="tel"
                                             id="email2"
                                             placeholder="Your phone number"
@@ -63,7 +63,7 @@ const Footer1 = () => {
                                             value={phone}
                                             onChange={(e) => setPhone(e.target.value)}
                                             required
-                                        />
+                                        /> */}
                                         <button className="newsletter-btn theme-btn" type="submit">
                                             Get Quote <i className="bi bi-arrow-right"></i>
                                         </button>

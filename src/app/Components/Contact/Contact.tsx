@@ -280,8 +280,10 @@ const Contact = () => {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
                     align-items: stretch;
-                    width: 100%;
-                    margin-bottom:50px;
+                    gap:25px;
+                    width:1320px;
+                    margin:auto;
+                    padding:0 0 120px 0;
                 }
 
                 /* Background only on left side */

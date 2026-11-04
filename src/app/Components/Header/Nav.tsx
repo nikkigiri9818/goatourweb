@@ -51,43 +51,18 @@ export default function Nav({ setMobileToggle }) {
 
       {/* GOA ADVENTURE */}
       <li className="menu-item-has-children">
-        <Link href="/goa-adventures">Goa Adventure</Link>
+        <Link href="/goa-adventures" onClick={() => setMobileToggle(false)}>Goa Adventure</Link>
         <DropDown>
           <ul>
-            <li>
-              <Link href="goa-adventures/best-scuba-diving-in-goa" onClick={() => setMobileToggle(false)}>
-                Scuba Diving in Goa
-              </Link>
-            </li>
-            <li>
-              <Link href="goa-adventures/watersports-in-goa" onClick={() => setMobileToggle(false)}>
-                Watersports in Goa
-              </Link>
-            </li>
-            <li>
-              <Link href="goa-adventures/cruise-party-in-goa" onClick={() => setMobileToggle(false)}>
-                Cruise Party in Goa
-              </Link>
-            </li>
-            <li>
-              <Link href="goa-adventures/dudhsagar-waterfall-trip" onClick={() => setMobileToggle(false)}>
-                Dudhsagar Waterfall Trip
-              </Link>
-            </li>
-            <li>
-              <Link href="goa-adventures/flyboarding-in-goa" onClick={() => setMobileToggle(false)}>
-                Flyboarding in Goa
-              </Link>
-            </li>
-            <li>
-              <Link href="/goa-adventures/bungee-jumping-in-goa" onClick={() => setMobileToggle(false)}>
-                Bungee Jumping in Goa
-              </Link>
-            </li>
+            <li><Link href="/goa-adventures/best-scuba-diving-in-goa" onClick={() => setMobileToggle(false)}>Scuba Diving in Goa</Link></li>
+            <li><Link href="/goa-adventures/watersports-in-goa" onClick={() => setMobileToggle(false)}>Watersports in Goa</Link></li>
+            <li><Link href="/goa-adventures/cruise-party-in-goa" onClick={() => setMobileToggle(false)}>Cruise Party in Goa</Link></li>
+            <li><Link href="/goa-adventures/dudhsagar-waterfall-trip" onClick={() => setMobileToggle(false)}>Dudhsagar Waterfall Trip</Link></li>
+            <li><Link href="/goa-adventures/flyboarding-in-goa" onClick={() => setMobileToggle(false)}>Flyboarding in Goa</Link></li>
+            <li><Link href="/goa-adventures/bungee-jumping-in-goa" onClick={() => setMobileToggle(false)}>Bungee Jumping in Goa</Link></li>
           </ul>
         </DropDown>
       </li>
-
      
       <li>
         <Link href="/about" onClick={() => setMobileToggle(false)}>

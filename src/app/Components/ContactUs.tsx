@@ -228,7 +228,7 @@ const ContactUs = () => {
             <style jsx>{`
                 .contact-section {
                     background: #123f49;
-                    padding: 100px 20px;
+                    padding: 30px 20px;
                     // width: 100%;
                     color: #ffffff;
                 }

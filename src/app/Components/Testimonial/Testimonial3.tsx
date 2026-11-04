@@ -51,11 +51,62 @@ const Testimonial3 = () => {
         sliderRef.current.slickPrev();
       }; 
 
-    const testimonialContent = [
-        {img:'/assets/img/testimonial/client-4.png', subtitle:'Web Designer', title:'Kristin Watson', content:'There are many variations of passages of the Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable.'},        
-        {img:'/assets/img/testimonial/client-4.png', subtitle:'President of Sales', title:'Wade Warren', content:'There are many variations of passages of the Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable.'},        
-        {img:'/assets/img/testimonial/client-4.png', subtitle:'Brooklyn Simmons', title:'Brooklyn Simmons', content:'There are many variations of passages of the Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable.'},        
-      ]; 
+   const testimonialContent = [
+    {
+        img: '/assets/img/testimonial/client-4.png',
+        subtitle: 'Family Traveller, India',
+        title: 'Rahul Sharma',
+        content: 'Our Goa trip was absolutely amazing! The tour was well organized, and we enjoyed visiting beautiful beaches, exploring local attractions, and experiencing Goan culture. Highly recommended for a memorable holiday!'
+    },
+    {
+        img: '/assets/img/testimonial/client-4.png',
+        subtitle: 'Honeymoon Couple, India',
+        title: 'Priya Mehta',
+        content: 'We had a wonderful honeymoon in Goa. The hotel arrangements, sightseeing, and romantic beach experiences were fantastic. Everything was perfectly planned, making our trip stress-free and unforgettable.'
+    },
+    {
+        img: '/assets/img/testimonial/client-4.png',
+        subtitle: 'Adventure Traveller, USA',
+        title: 'Michael Anderson',
+        content: 'Goa was an incredible destination! We enjoyed scuba diving, exciting water sports, and beautiful sunset views. The tour team was friendly and professional. I would definitely visit Goa again!'
+    },
+    {
+        img: '/assets/img/testimonial/client-4.png',
+        subtitle: 'Weekend Traveller, India',
+        title: 'Sneha Patel',
+        content: 'The North Goa sightseeing tour was fantastic. We visited Baga Beach, Fort Aguada, and some beautiful local spots. The arrangements were excellent, and the entire experience was worth every penny.'
+    },
+    {
+        img: '/assets/img/testimonial/client-4.png',
+        subtitle: 'International Tourist, UK',
+        title: 'James Wilson',
+        content: 'I absolutely loved exploring Goa! The stunning beaches, delicious food, and vibrant culture made this holiday special. The Dudhsagar waterfall trip was the highlight of our entire vacation.'
+    },
+    {
+        img: '/assets/img/testimonial/client-4.png',
+        subtitle: 'Group Traveller, India',
+        title: 'Amit Verma',
+        content: 'We booked a Goa tour package for our group of friends, and it was an amazing experience. From beach hopping to the dinner cruise, everything was enjoyable. Great service and wonderful memories!'
+    },
+    {
+        img: '/assets/img/testimonial/client-4.png',
+        subtitle: 'Solo Traveller, Australia',
+        title: 'Emily Thompson',
+        content: 'Goa is a perfect destination for solo travellers. The beaches were beautiful, the sightseeing was enjoyable, and the local experiences were amazing. The tour arrangements made everything easy and comfortable.'
+    },
+    {
+        img: '/assets/img/testimonial/client-4.png',
+        subtitle: 'Corporate Traveller, India',
+        title: 'Vikram Singh',
+        content: 'Our Goa corporate trip was beautifully organized. The transportation, hotel accommodation, and sightseeing arrangements were excellent. We enjoyed every moment and would recommend this travel service.'
+    },
+    {
+        img: '/assets/img/testimonial/client-4.png',
+        subtitle: 'Holiday Traveller, Canada',
+        title: 'Daniel Roberts',
+        content: 'Goa exceeded all our expectations! From relaxing on beautiful beaches to enjoying exciting cruises and local sightseeing, every day was special. A fantastic destination for anyone looking for a memorable holiday.'
+    }
+];
 
     return (
         <section className="testimonial-section section-padding fix bg-cover" data-background="/assets/img/testimonial/testimonial-bg.jpg" >
@@ -85,9 +136,9 @@ const Testimonial3 = () => {
                                         <div className="testimonial-card-items">
                                             <div className="client-info-items">
                                                 <div className="client-info">
-                                                    <div className="client-image">
+                                                    {/* <div className="client-image">
                                                         <Image src={item.img} alt="img" width={60} height={60}   />
-                                                    </div>
+                                                    </div> */}
                                                     <div className="content">
                                                         <h4>
                                                         {item.title}

@@ -37,7 +37,7 @@ const page = () => {
             <Counter3/>
              <Blog3/>
              
-            <Instagram2/>          
+            {/* <Instagram2/>           */}
         </div>
     );
 };

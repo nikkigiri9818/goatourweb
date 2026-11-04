@@ -8,13 +8,13 @@ import Slider from 'react-slick';
 // /assets/img/destination/goa/baga-beach.jpg, calangute-beach.jpg, anjuna-beach.jpg, dudhsagar-waterfalls.jpg,
 // grand-island.jpg, old-goa-churches.jpg, palolem-beach.jpg
 const destinations = [
-  { img: '/assets/img/hero/heroone.jpg', title: 'Baga Beach', content: 'Parasailing & Nightlife', tag: 'Beach', href: '/goa-adventures/watersports-in-goa' },
-  { img: '/assets/img/hero/herotwo.jpg', title: 'Calangute Beach', content: 'Water Sports & Beach Shacks', tag: 'Beach', href: '/goa-adventures/watersports-in-goa' },
+  { img: '/assets/img/hero/bagabeach.jpg', title: 'Baga Beach', content: 'Parasailing & Nightlife', tag: 'Beach', href: '/goa-adventures/watersports-in-goa' },
+  { img: '/assets/img/hero/calangutebeach.jpg', title: 'Calangute Beach', content: 'Water Sports & Beach Shacks', tag: 'Beach', href: '/goa-adventures/watersports-in-goa' },
   { img: '/assets/img/hero/herothree.jpg', title: 'Anjuna Beach', content: 'Flea Market & Sunset Cafes', tag: 'Beach', href: '/goa-tour-package' },
-  { img: '/assets/img/hero/heroone.jpg', title: 'Dudhsagar Waterfalls', content: 'Jeep Safari & Waterfall Trek', tag: 'Adventure', href: '/goa-adventures/dudhsagar-waterfall-trip' },
-  { img: '/assets/img/hero/herotwo.jpg', title: 'Grand Island', content: 'Scuba Diving & Dolphin Trip', tag: 'Adventure', href: '/goa-adventures/best-scuba-diving-in-goa' },
-  { img: '/assets/img/hero/herothree.jpg', title: 'Old Goa Churches', content: 'Heritage & Basilica Of Bom Jesus', tag: 'Heritage', href: '/goa-tour-package' },
-  { img: '/assets/img/hero/heroone.jpg', title: 'Palolem Beach', content: 'Calm Waters & Kayaking', tag: 'Beach', href: '/goa-tour-package' },
+  { img: '/assets/img/goa/dudhsagarimages.jpg', title: 'Dudhsagar Waterfalls', content: 'Jeep Safari & Waterfall Trek', tag: 'Adventure', href: '/goa-adventures/dudhsagar-waterfall-trip' },
+  { img: '/assets/img/hero/grandisland.jpg', title: 'Grand Island', content: 'Scuba Diving & Dolphin Trip', tag: 'Adventure', href: '/goa-adventures/best-scuba-diving-in-goa' },
+  { img: '/assets/img/goa/oldchurch.jpg', title: 'Old Goa Churches', content: 'Heritage & Basilica Of Bom Jesus', tag: 'Heritage', href: '/goa-tour-package' },
+  { img: '/assets/img/hero/palolembeach.jpg', title: 'Palolem Beach', content: 'Calm Waters & Kayaking', tag: 'Beach', href: '/goa-tour-package' },
 ];
 
 const Destination3 = () => {
@@ -60,7 +60,7 @@ const Destination3 = () => {
         .gdc:hover {
           color: #fff;
           transform: translateY(-8px);
-          box-shadow: 0 24px 46px rgba(var(--theme-rgb, 10, 156, 180), 0.38);
+          box-shadow: 0 14px 28px rgba(var(--theme-rgb, 10, 156, 180), 0.18);
         }
 
         .gdc-img {

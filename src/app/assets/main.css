@@ -4924,7 +4924,7 @@ span {
   height: 100%;
   content: "";
   border-radius: 0px 0px 16px 16px;
-  background: #242625;
+  /* background: #242625; */
   width: 32%;
   z-index: -1;
 }
@@ -6812,6 +6812,7 @@ span {
   align-items: center;
   gap: 30px;
   justify-content: center;
+  margin-bottom: 25px;
 }
 @media (max-width: 575px) {
   .hero-3 .hero-content .about-button {
@@ -10008,3 +10009,7 @@ input.main-search-input::placeholder {
 .hero-1 .hero-content .booking-list-area .booking-list .form .single-select option{
   color: #000;
 }
+
+
+/* add css */
+
