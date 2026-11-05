@@ -151,8 +151,7 @@ const HeroBanner3 = () => {
             typeof window !== 'undefined' &&
             window.matchMedia &&
             window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        document.querySelectorAll('.hero-3 video').forEach((v) => {
+document.querySelectorAll<HTMLVideoElement>('.hero-3 video').forEach((v) => {
             v.muted = true;
             if (reduce) {
                 v.pause();
@@ -280,11 +279,11 @@ const HeroBanner3 = () => {
                                             <div className="hero-video-curve"></div>
                                         </div>
                                     ) : (
-                                        <div
-                                            className="hero-image bg-cover"
-                                            data-background={item.img}
-                                            style={{ height: "850px" }}
-                                        ></div>
+                                       <div
+    className="hero-image bg-cover"
+    data-background={item.poster}
+    style={{ height: "850px" }}
+></div>
                                     )}
 
                                     <div className="container">
