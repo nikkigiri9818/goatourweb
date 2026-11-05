@@ -5078,7 +5078,7 @@ span {
   }
 }
 .footer-widget-wrapper-new .single-widget-items .contact-info .contact-items .icon {
-  width: 40px;
+ min-width: 40px;
   height: 40px;
   line-height: 40px;
   border-radius: 5px;

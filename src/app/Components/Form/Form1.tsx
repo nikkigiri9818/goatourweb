@@ -1,3 +1,5 @@
+
+
 "use client";
 
 import Link from "next/link";
@@ -7,11 +9,15 @@ type Form1Props = {
   onSelect?: (key: string) => void;
 };
 
+// Har tab ke circle mein icon ya photo dikha sakte hain:
+//  - img: "" (khali)  -> icon dikhega (icon: Bootstrap Icons ka naam, ye aapke project mein pehle se load hai)
+//  - img: "/assets/img/tabs/couple.jpg" -> icon ki jagah ye photo circle mein dikhegi
+// href mein ?type= se packages page par us category ka filter khul jata hai.
 const TABS = [
-  { key: "Couple", label: "Couple", sub: "Romantic getaways", icon: "fa-heart" },
-  { key: "Family", label: "Family", sub: "Fun for everyone", icon: "fa-users" },
-  { key: "Friends", label: "Friends Group", sub: "Trips with your gang", icon: "fa-umbrella-beach" },
-  { key: "Honeymoon", label: "Honeymoon", sub: "Special couple plans", icon: "fa-champagne-glasses" },
+  { key: "Couple", label: "Couple", sub: "Romantic getaways", icon: "bi-heart-fill", img: "", href: "/goa-tour-package?type=couple" },
+  { key: "Family", label: "Family", sub: "Fun for everyone", icon: "bi-people-fill", img: "", href: "/goa-tour-package?type=family" },
+  { key: "Friends", label: "Friends Group", sub: "Trips with your gang", icon: "bi-emoji-smile-fill", img: "", href: "/goa-tour-package?type=friends" },
+  { key: "Honeymoon", label: "Honeymoon", sub: "Special couple plans", icon: "bi-gem", img: "", href: "/goa-tour-package?type=honeymoon" },
 ];
 
 // Tabs hero image ke safed curve ke andar kitna upar aayein (px). Upar-neeche karna ho to ye numbers badlein.
@@ -21,7 +27,7 @@ const TABS_OVERLAP = (screenWidth: number) =>
     : 50;
 
 const Form1 = ({ onSelect }: Form1Props) => {
-  const [active, setActive] = useState("Couple");
+  const [active, setActive] = useState<string | null>(null);
   const [lift, setLift] = useState<number | null>(null);
 
   const sectionRef = useRef<HTMLElement>(null);
@@ -103,7 +109,7 @@ const Form1 = ({ onSelect }: Form1Props) => {
           max-width: 1240px;
         }
 
-        /* ---- choice card ---- */
+        /* ---- choice card (ab seedha ek link hai) ---- */
         .goa-trip-tab {
           position: relative;
           width: 100%;
@@ -113,6 +119,7 @@ const Form1 = ({ onSelect }: Form1Props) => {
           padding: 14px 18px 14px 14px;
           overflow: hidden;
           text-align: left;
+          text-decoration: none;
           font-family: inherit;
           color: #08243d;
           background: #fff;
@@ -142,13 +149,21 @@ const Form1 = ({ onSelect }: Form1Props) => {
           width: 54px;
           height: 54px;
           border-radius: 50%;
+          overflow: hidden;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 21px;
+          font-size: 22px;
           color: var(--theme, #0a9cb4);
           background: rgba(var(--theme-rgb, 10, 156, 180), 0.12);
           transition: background .35s ease, color .35s ease, transform .35s ease;
+        }
+        /* circle mein photo lagi ho to poora circle bharegi */
+        .goa-trip-ico img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
         }
 
         .goa-trip-text { flex: 1; min-width: 0; }
@@ -205,24 +220,6 @@ const Form1 = ({ onSelect }: Form1Props) => {
         .goa-trip-tab.active .goa-trip-sub { color: rgba(255, 255, 255, 0.85); }
         .goa-trip-tab.active .goa-trip-ico { background: #fff; }
 
-        /* chuna hua card par tick badge */
-        .goa-trip-check {
-          position: absolute;
-          top: 10px;
-          right: 12px;
-          z-index: 2;
-          width: 22px;
-          height: 22px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 11px;
-          color: var(--theme, #0a9cb4);
-          background: #fff;
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
-          animation: goaTripPop .35s ease both;
-        }
         .goa-trip-tab.active .goa-trip-arrow,
         .goa-trip-tab:hover .goa-trip-arrow { display: none; }
 
@@ -234,10 +231,6 @@ const Form1 = ({ onSelect }: Form1Props) => {
         @keyframes goaTripUp {
           from { opacity: 0; transform: translateY(20px); }
           to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes goaTripPop {
-          from { opacity: 0; transform: scale(0.3); }
-          to   { opacity: 1; transform: scale(1); }
         }
 
         @media (max-width: 1199px) {
@@ -251,14 +244,12 @@ const Form1 = ({ onSelect }: Form1Props) => {
 
         @media (max-width: 575px) {
           .goa-trip-tab { gap: 10px; padding: 10px 12px 10px 10px; border-radius: 20px; }
-          .goa-trip-ico { width: 40px; height: 40px; font-size: 16px; }
+          .goa-trip-ico { width: 40px; height: 40px; font-size: 17px; }
           .goa-trip-label { font-size: 14px; }
-          .goa-trip-check { top: 6px; right: 8px; width: 18px; height: 18px; font-size: 9px; }
         }
 
         @media (prefers-reduced-motion: reduce) {
           .goa-trip-tab, .goa-trip-tab::before, .goa-trip-ico, .goa-trip-arrow { animation: none; transition: none; }
-          .goa-trip-check { animation: none; }
         }
       `}</style>
 
@@ -273,33 +264,29 @@ const Form1 = ({ onSelect }: Form1Props) => {
         <div className="container">
           <ul className="goa-trip-tabs">
             {TABS.map((tab, i) => (
-              <Link href={"/goa-tour-package"}>
               <li key={tab.key}>
-                <button
-                  type="button"
+                <Link
+                  href={tab.href}
                   className={`goa-trip-tab ${active === tab.key ? "active" : ""}`}
                   style={{ animationDelay: `${i * 0.1}s` }}
                   onClick={() => handleClick(tab.key)}
-                  aria-pressed={active === tab.key}
                 >
                   <span className="goa-trip-ico">
-                    <i className={`fa-solid ${tab.icon}`}></i>
+                    {tab.img ? (
+                      <img src={tab.img} alt={tab.label} />
+                    ) : (
+                      <i className={`bi ${tab.icon}`}></i>
+                    )}
                   </span>
                   <span className="goa-trip-text">
                     <span className="goa-trip-label">{tab.label}</span>
                     <span className="goa-trip-sub">{tab.sub}</span>
                   </span>
                   <span className="goa-trip-arrow">
-                    <i className="fa-solid fa-arrow-right"></i>
+                    <i className="bi bi-arrow-right"></i>
                   </span>
-                  {active === tab.key && (
-                    <span className="goa-trip-check">
-                      <i className="fa-solid fa-check"></i>
-                    </span>
-                  )}
-                </button>
+                </Link>
               </li>
-              </Link>
             ))}
           </ul>
         </div>

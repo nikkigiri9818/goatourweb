@@ -17,6 +17,7 @@ import WhyChooseUs from '../Components/Whychooseus';
 import ThingsToDoSlider from '../Components/Thingstodoingoa';
 import TrustStrip from '../Components/Truststrip';
 import GoaSections from '../Components/GoaHighlights';
+import TourPackagesSlider from '../Components/Tourpackagesslider';
 
 const page = () => {
     return (
@@ -25,6 +26,7 @@ const page = () => {
 <Form1 />            
             <Destination3/>
             <About3/>
+            <TourPackagesSlider/>
             <DealOffers2/>
             {/* <Brand2/>
             <Counter2/>

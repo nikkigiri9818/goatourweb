@@ -1,21 +1,24 @@
+
 "use client"
 import React, { useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Slider from 'react-slick';
+// Data wahi hai jo adventures ke listing page mein hai (ek hi jagah se badlega).
+// Agar ye file Components ke kisi folder ke andar hai to path "../goaAdventuresData" hai; apne folder ke hisaab se badlein.
+import { goaAdventures, ADVENTURE_BASE_PATH } from '../../Components/Goaadventuresdata';
 
-// Cards ki photos abhi hero ki placeholder photos hain. Asli photos ye naam se rakhein aur yahan path badal dein:
-// /assets/img/destination/goa/baga-beach.jpg, calangute-beach.jpg, anjuna-beach.jpg, dudhsagar-waterfalls.jpg,
-// grand-island.jpg, old-goa-churches.jpg, palolem-beach.jpg
-const destinations = [
-  { img: '/assets/img/hero/bagabeach.jpg', title: 'Baga Beach', content: 'Parasailing & Nightlife', tag: 'Beach', href: '/goa-adventures/watersports-in-goa' },
-  { img: '/assets/img/hero/calangutebeach.jpg', title: 'Calangute Beach', content: 'Water Sports & Beach Shacks', tag: 'Beach', href: '/goa-adventures/watersports-in-goa' },
-  { img: '/assets/img/hero/herothree.jpg', title: 'Anjuna Beach', content: 'Flea Market & Sunset Cafes', tag: 'Beach', href: '/goa-tour-package' },
-  { img: '/assets/img/goa/dudhsagarimages.jpg', title: 'Dudhsagar Waterfalls', content: 'Jeep Safari & Waterfall Trek', tag: 'Adventure', href: '/goa-adventures/dudhsagar-waterfall-trip' },
-  { img: '/assets/img/hero/grandisland.jpg', title: 'Grand Island', content: 'Scuba Diving & Dolphin Trip', tag: 'Adventure', href: '/goa-adventures/best-scuba-diving-in-goa' },
-  { img: '/assets/img/goa/oldchurch.jpg', title: 'Old Goa Churches', content: 'Heritage & Basilica Of Bom Jesus', tag: 'Heritage', href: '/goa-tour-package' },
-  { img: '/assets/img/hero/palolembeach.jpg', title: 'Palolem Beach', content: 'Calm Waters & Kayaking', tag: 'Beach', href: '/goa-tour-package' },
-];
+// Cards ki photos: pehle yahan ke path, na ho to data file ka path (/assets/img/adventure/<slug>.jpg) use hota hai.
+// Jin 3 adventures ki asli photo abhi nahi hai unpar aapki purani photos placeholder hain. Asli photo aane par yahan path badal dein.
+const PHOTO: Record<string, string> = {
+  'best-scuba-diving-in-goa': '/assets/img/goa/scuba.jpg',
+  'watersports-in-goa': '/assets/img/goa/sportsbeach.jpg',
+  'cruise-party-in-goa': '/assets/img/goa/cruisepartyimages.jpeg',            // placeholder
+  'dudhsagar-waterfall-trip': '/assets/img/goa/dudhsagarimages.jpg',
+  'flyboarding-in-goa': '/assets/img/goa/flyboardingimges.webp',      // placeholder
+  'bungee-jumping-in-goa': '/assets/img/goa/bungeejumping.jpg',        // placeholder
+};
+const FALLBACK_PHOTO = '/assets/img/hero/herotwo.jpg'; // photo na mile to ye dikhegi
 
 const Destination3 = () => {
   // agar ye file .jsx hai to "<any>" hata dein
@@ -225,23 +228,37 @@ const Destination3 = () => {
         </div>
         <div className="container">
           <div className="section-title text-center">
-            <span className="sub-title wow fadeInUp">Explore Goa</span>
+            <span className="sub-title wow fadeInUp">Goa Adventure</span>
             <h2 className="wow fadeInUp wow" data-wow-delay=".3s">
-              Most Popular Places To Visit In Goa
+              Thrilling Adventures To Try In Goa
             </h2>
           </div>
 
           <div className="goa-desti-slider">
             <Slider ref={sliderRef} {...settings}>
-              {destinations.map((item) => (
-                <div key={item.title}>
-                  <Link href={item.href} className="gdc" aria-label={`Explore ${item.title}`}>
-                    <img className="gdc-img" src={item.img} alt={item.title} loading="lazy" decoding="async" />
+              {goaAdventures.map((item: any) => (
+                <div key={item.slug}>
+                  <Link
+                    href={`${ADVENTURE_BASE_PATH}/${item.slug}`}
+                    className="gdc"
+                    aria-label={`Explore ${item.title}`}
+                  >
+                    <img
+                      className="gdc-img"
+                      src={PHOTO[item.slug] || item.image}
+                      alt={item.title}
+                      loading="lazy"
+                      decoding="async"
+                      onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.src = FALLBACK_PHOTO;
+                      }}
+                    />
                     <span className="gdc-tag">{item.tag}</span>
                     <span className="gdc-go"><i className="bi bi-arrow-up-right"></i></span>
                     <div className="gdc-body">
                       <h4 className="gdc-title">{item.title}</h4>
-                      <p className="gdc-text">{item.content}</p>
+                      <p className="gdc-text">{item.highlights.slice(0, 2).join(' · ')}</p>
                       <span className="gdc-cta">Explore <i className="bi bi-arrow-right"></i></span>
                     </div>
                   </Link>
@@ -260,8 +277,8 @@ const Destination3 = () => {
           </div>
 
           <div className="text-center mt-5 wow fadeInUp" data-wow-delay=".3s">
-            <Link href="/goa-tour-package" className="theme-btn">
-              View Goa Tour Packages<i className="bi bi-arrow-right"></i>
+            <Link href={ADVENTURE_BASE_PATH} className="theme-btn">
+              View All Adventures<i className="bi bi-arrow-right"></i>
             </Link>
           </div>
         </div>

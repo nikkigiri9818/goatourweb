@@ -408,7 +408,7 @@ const Contact = () => {
                                     <div className="content">
                                         <h3>
                                             <a href="mailto:info@tripco.com">
-                                                info@tripco.com
+                                                goa@tripco.com
                                             </a>
                                         </h3>
 
@@ -435,8 +435,8 @@ const Contact = () => {
 
                                     <div className="content">
                                         <h3>
-                                            <a href="tel:+2086660112">
-                                                Hot: +208-666-0112
+                                            <a href="tel:+91 ######">
+                                                Hot: +91 #######
                                             </a>
                                         </h3>
 
