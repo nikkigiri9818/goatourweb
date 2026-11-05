@@ -6838,7 +6838,7 @@ span {
   border-radius: 10px;
 }
 .hero-3 .swiper-dot .swiper-pagination-bullet:not(:last-child) {
-  margin-right: 10px;
+  margin-right: 10px;     
 }
 .hero-3 .swiper-dot .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: var(--theme);
