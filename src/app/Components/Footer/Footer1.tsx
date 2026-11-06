@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import loadBackgroudImages from '../Common/loadBackgroudImages';
 import Link from 'next/link';
+import FloatingContact from '../Floatingcontact';
 
 // ---- Yahan sirf ye values badalni hain. Khali ('') chhodne par wo hissa footer mein dikhega hi nahi. ----
 const BRAND = 'Goa Holiday Tours';
@@ -177,6 +178,7 @@ const Footer1 = () => {
                     </div>
                 </div>
             </div>
+            <FloatingContact/>
         </footer>
     );
 };
