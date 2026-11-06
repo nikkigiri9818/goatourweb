@@ -115,9 +115,10 @@ const HeroBanner3 = () => {
 
         /* doosra (translucent) button photo par bhi saaf dikhe */
         .hero-3 .about-button .theme-btn.style-2 {
-          background: rgba(8, 36, 61, 0.45);
+          background:black !important;;
           backdrop-filter: blur(6px);
         }
+          
 
         @media (prefers-reduced-motion: reduce) {
           .hero-section.hero-3 .hero-image,

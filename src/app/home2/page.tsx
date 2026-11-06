@@ -26,8 +26,9 @@ const page = () => {
 <Form1 />  
             <TourPackagesSlider/>
 
-            <Destination3/>
             <About3/>
+                        <Destination3/>
+
             <DealOffers2/>
             {/* <Brand2/>
             <Counter2/>
