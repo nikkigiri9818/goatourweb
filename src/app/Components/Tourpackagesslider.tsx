@@ -11,8 +11,8 @@ import { goaPackages, BASE_PATH, formatINR } from '../Components/Goapakagesdata'
 const PLACEHOLDER: Record<string, string> = {
   '3-day-goa-tour-package': '/assets/img/hero/bagabeach.jpg',
   '4-days-adventure-goa-tour-package': '/assets/img/hero/calangutebeach.jpg',
-  '5-days-summer-gateway-goa-tour-package': '/assets/img/hero/herotwo.jpg',
-  'honeymoon-goa-tour-package': '/assets/img/hero/herothree.jpg',
+  '5-days-summer-gateway-goa-tour-package': '/assets/img/hero/calangutebeach.jpg',
+  'honeymoon-goa-tour-package': '/assets/img/goa/honmoonpakg.jpg',
   '4-day-premium-goa-tour-package': '/assets/img/hero/grandisland.jpg',
   'premium-5-days-goa-tour-package': '/assets/img/goa/dudhsagarimages.jpg',
 };
@@ -224,7 +224,7 @@ const TourPackagesSlider = () => {
           <div className="section-title text-center">
             <span className="sub-title wow fadeInUp">Goa Tour Packages</span>
             <h2 className="wow fadeInUp wow" data-wow-delay=".3s">
-              Choose Your Perfect Goa Holiday
+               Choose your luxury goa holiday packages
             </h2>
           </div>
 

@@ -5,11 +5,11 @@ import Link from 'next/link';
 
 // ---- Yahan sirf ye values badalni hain. Khali ('') chhodne par wo hissa footer mein dikhega hi nahi. ----
 const BRAND = 'Goa Holiday Tours';
-const WHATSAPP_NUMBER = '918287682602';
+const WHATSAPP_NUMBER = '+91 7678464517';
 const CONTACT = {
     address: 'Holiday beach street, Khobra Vaddo, Calangute, Goa 403516',   // client ke footer wala address yahan likhein
     email: 'test@gmail.com',     // client ka email yahan likhein
-    phones: [{ label: '+91 ########', tel: '+91 #######' }],
+    phones: [{ label: '+91 7678464517', tel: '917678464517' }],
 };
 const SOCIAL = {
     facebook: '',  // Facebook page ka poora link

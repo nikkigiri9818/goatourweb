@@ -263,9 +263,9 @@
 // Source: goatourpackages.in (client ki site). Launch se pehle client se prices/inclusions verify karwa lena.
 
 export const BASE_PATH = '/goa-tour-package';
-export const WHATSAPP_NUMBER = '918287682602';
-export const PHONE_TEL = '+918287682602';
-export const PHONE_DISPLAY = '+91 82876 82602';
+export const WHATSAPP_NUMBER = '917678464517';
+export const PHONE_TEL = '+917678464517';
+export const PHONE_DISPLAY = '+91 7678464517';
 
 export const whatsappLink = (text) =>
   `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(text)}`;
@@ -422,7 +422,7 @@ export const goaPackages = [
     rating: 4.5,
     reviews: 276,
     categories: ['couple', 'honeymoon'],
-    image: `${IMG}/sunsetgoaimages.webp`,
+    image: `${IMG}/honmoonpakg.jpg`,
     oldPrice: 20000,
     price: 15500,
     priceNoTransfer: 14000,

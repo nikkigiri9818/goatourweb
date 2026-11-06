@@ -4,7 +4,7 @@ import loadBackgroudImages from '../Common/loadBackgroudImages';
 import Image from 'next/image';
 
 const WHATSAPP_URL =
-    'https://api.whatsapp.com/send?phone=918287682602&text=' +
+    'https://api.whatsapp.com/send?phone=917678464517&text=' +
     encodeURIComponent('Hello, I want to plan a Goa trip. Please help me with the details.');
 
 const Choose1 = () => {

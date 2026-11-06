@@ -9,7 +9,7 @@ import { useParams } from "next/navigation";
 
 // ---- Yahan sirf ye 2 cheezein badalni hain ----
 // 1. Client ka asli WhatsApp number (country code ke saath, bina + ya space ke). Abhi nakli number hai.
-const WHATSAPP_NUMBER = "919999999999";
+const WHATSAPP_NUMBER = "+917678464517";
 
 // 2. Agar kisi blog ka slug article ki key se alag hai, to yahan jodein:  "listing-ka-slug": "articles-ki-key"
 const SLUG_ALIASES: Record<string, string> = {

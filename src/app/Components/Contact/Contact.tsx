@@ -435,8 +435,8 @@ const Contact = () => {
 
                                     <div className="content">
                                         <h3>
-                                            <a href="tel:+91 ######">
-                                                Hot: +91 #######
+                                            <a href="tel:+917678464517">
+                                                Hot: +91 7678464517
                                             </a>
                                         </h3>
 

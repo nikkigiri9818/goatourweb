@@ -21,7 +21,7 @@ const items = [
 ];
 
 const TrustStrip = ({
-  href = "/contact", // set to your WhatsApp link, e.g. https://wa.me/91XXXXXXXXXX
+  href = "https://wa.me/917678464517", // set to your WhatsApp link, e.g. https://wa.me/91XXXXXXXXXX
   buttonText = "Get Details & Videos",
 }) => {
   const ref = useRef(null);

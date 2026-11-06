@@ -1,15 +1,16 @@
 'use client'
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 /* ---------- Content: edit text, links and image paths here ---------- */
+const LINK = "/goa-adventures";
+
 const TOURS = [
   { title: "Mandovi Sunset Cruise", sub: "Live music, dinner and dance on board", img: "/assets/img/goa/sunsetview.jpg" },
   { title: "Scuba Diving, Grande Island", sub: "Beginner friendly, certified instructors", img: "/assets/img/goa/scuba.jpg" },
   { title: "Parasailing, Calangute", sub: "Boat ride plus a 10-minute flight", img: "/assets/img/goa/parasailing.jpg" },
   { title: "Dolphin Spotting Trip", sub: "Early morning boat from Sinquerim", img: "/assets/img/goa/flyboardingimges.webp" },
 ];
-
 
 const Arrow = ({ dir, label, onClick }) => (
   <button type="button" className={`goa-arrow ${dir}`} aria-label={label} onClick={onClick}>
@@ -40,7 +41,6 @@ export default function GoaSections() {
     return o === 0 ? "c" : o === -1 ? "l" : o === 1 ? "r" : "";
   };
 
-  
   return (
     <>
       {/* ===== Section 1: Top 4 Goa Tours Highlights ===== */}
@@ -54,12 +54,22 @@ export default function GoaSections() {
 
           <div className="goa-flow" aria-roledescription="carousel" aria-label="Top Goa tours">
             <Arrow dir="prev" label="Previous tour" onClick={() => go(cur - 1)} />
-            {TOURS.map((t, k) => (
-              <figure key={t.title} className={`goa-slide ${pos(k)}`} onClick={() => pos(k) && go(k)}>
-                <img src={t.img} alt={t.title} onError={hideBroken} />
-                <figcaption>{t.title}<small>{t.sub}</small></figcaption>
-              </figure>
-            ))}
+            {TOURS.map((t, k) => {
+              const p = pos(k);
+              return (
+                <Link
+                  key={t.title}
+                  href={LINK}
+                  className={`goa-slide ${p}`}
+                  aria-label={t.title}
+                  aria-hidden={p ? undefined : true}
+                  tabIndex={p ? 0 : -1}
+                >
+                  <img src={t.img} alt={t.title} onError={hideBroken} />
+                  <span className="goa-cap">{t.title}<small>{t.sub}</small></span>
+                </Link>
+              );
+            })}
             <Arrow dir="next" label="Next tour" onClick={() => go(cur + 1)} />
           </div>
 
@@ -71,7 +81,6 @@ export default function GoaSections() {
         </div>
       </section>
 
-     
       {/* ===== All CSS ===== */}
       <style jsx global>{`
         .goa-sec{--teal:#1a9bc0;--teal-dark:#0f7a99;--ink:#13232b;--muted:#6b7780;--line:#e6edf0;
@@ -85,20 +94,20 @@ export default function GoaSections() {
         .goa-arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:0;
           background:var(--teal);box-shadow:0 0 0 6px rgba(26,155,192,.18);display:grid;place-items:center;transition:background .2s;z-index:5}
         .goa-arrow:hover{background:var(--teal-dark)}
-        .goa-arrow:focus-visible,.goa-dots button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+        .goa-arrow:focus-visible,.goa-dots button:focus-visible,.goa-slide:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
         .goa-arrow svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
         .goa-arrow.prev{left:0}.goa-arrow.next{right:0}
 
         /* Highlights */
         .goa-flow{position:relative;height:340px;perspective:1100px}
-        .goa-slide{position:absolute;left:50%;top:0;width:min(62%,560px);height:300px;margin:0 0 0 calc(min(62%,560px)/-2);
-          border-radius:16px;overflow:hidden;opacity:0;pointer-events:none;cursor:pointer;
+        .goa-slide{display:block;position:absolute;left:50%;top:0;width:min(62%,560px);height:300px;margin:0 0 0 calc(min(62%,560px)/-2);
+          border-radius:16px;overflow:hidden;opacity:0;pointer-events:none;cursor:pointer;color:#fff;text-decoration:none;
           transition:transform .6s ease,opacity .6s ease;background:linear-gradient(135deg,#0b5f7a,#1a9bc0 60%,#7fd3e6)}
         .goa-slide img{width:100%;height:100%;object-fit:cover;display:block}
-        .goa-slide figcaption{position:absolute;inset:auto 0 0;padding:40px 20px 16px;color:#fff;font-weight:700;font-size:18px;
+        .goa-cap{position:absolute;inset:auto 0 0;padding:40px 20px 16px;color:#fff;font-weight:700;font-size:18px;
           background:linear-gradient(transparent,rgba(0,0,0,.7))}
-        .goa-slide figcaption small{display:block;font-weight:500;font-size:13px;opacity:.9}
-        .goa-slide.c{transform:none;opacity:1;z-index:3;pointer-events:auto;cursor:default}
+        .goa-cap small{display:block;font-weight:500;font-size:13px;opacity:.9}
+        .goa-slide.c{transform:none;opacity:1;z-index:3;pointer-events:auto}
         .goa-slide.l{transform:translateX(-62%) rotateY(32deg) scale(.82);opacity:.9;z-index:2;pointer-events:auto}
         .goa-slide.r{transform:translateX(62%) rotateY(-32deg) scale(.82);opacity:.9;z-index:2;pointer-events:auto}
         .goa-dots{display:flex;gap:8px;justify-content:center;margin-top:8px}
@@ -132,7 +141,11 @@ export default function GoaSections() {
           .goa-slide{height:220px;width:70%;margin-left:-35%}
           .goa-slide.l{transform:translateX(-58%) rotateY(32deg) scale(.8)}
           .goa-slide.r{transform:translateX(58%) rotateY(-32deg) scale(.8)}
-          .goa-flow .goa-arrow{display:none}
+          /* arrows now visible on mobile (smaller, tucked at the edges) */
+          .goa-flow .goa-arrow{width:38px;height:38px;box-shadow:0 0 0 4px rgba(26,155,192,.18)}
+          .goa-flow .goa-arrow svg{width:16px;height:16px}
+          .goa-flow .goa-arrow.prev{left:4px}
+          .goa-flow .goa-arrow.next{right:4px}
         }
         @media(prefers-reduced-motion:reduce){.goa-slide,.goa-track{transition:none;scroll-behavior:auto}}
       `}</style>

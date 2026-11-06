@@ -23,10 +23,11 @@ const page = () => {
     return (
         <div>
             <HeroBanner3/>
-<Form1 />            
+<Form1 />  
+            <TourPackagesSlider/>
+
             <Destination3/>
             <About3/>
-            <TourPackagesSlider/>
             <DealOffers2/>
             {/* <Brand2/>
             <Counter2/>
