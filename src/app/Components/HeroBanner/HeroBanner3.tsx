@@ -143,9 +143,9 @@ const HeroBanner3 = () => {
                           <h1 data-animation="fadeInUp" data-delay="1.4s">
                             {parse(item.title)}
                           </h1>
-                          <p data-animation="fadeInUp" data-delay="1.6s">
+                          {/* <p data-animation="fadeInUp" data-delay="1.6s">
                             {item.content}
-                          </p>
+                          </p> */}
                           <div className="about-button" data-animation="fadeInUp" data-delay="1.8s">
                             <Link href="/goa-tour-package" className="theme-btn">
                               {item.packagesLabel}<i className="bi bi-arrow-right"></i>
