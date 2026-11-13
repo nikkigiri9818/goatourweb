@@ -261,14 +261,7 @@ const GoaPackageDetails = ({ pkg }) => {
                 <p>{pkg.overview}</p>
               </div> */}
 
-              <div className="gpd-block">
-                <h2>Package Price</h2>
-                <ul className="gpd-prices">
-                  <li><span>Per person, with pickup & drop</span><b>{formatINR(pkg.price)}</b></li>
-                  <li><span>Per person, without pickup / drop</span><b>{formatINR(pkg.priceNoTransfer)}</b></li>
-                  {pkg.groupPrice && <li><span>Per person, group of 4 or more (all inclusive)</span><b>{formatINR(pkg.groupPrice)}</b></li>}
-                </ul>
-              </div>
+             
 
               <div className="gpd-block">
                 <h2>What&apos;s Included</h2>
@@ -303,6 +296,15 @@ const GoaPackageDetails = ({ pkg }) => {
                   </div>
                 ))}
                 <p className="gpd-note">The order of activities can be adjusted to your arrival time and weather. Send an enquiry for the final plan.</p>
+              </div>
+
+               <div className="gpd-block">
+                <h2>Package Price</h2>
+                <ul className="gpd-prices">
+                  <li><span>Per person, with pickup & drop</span><b>{formatINR(pkg.price)}</b></li>
+                  <li><span>Per person, without pickup / drop</span><b>{formatINR(pkg.priceNoTransfer)}</b></li>
+                  {pkg.groupPrice && <li><span>Per person, group of 4 or more (all inclusive)</span><b>{formatINR(pkg.groupPrice)}</b></li>}
+                </ul>
               </div>
             </div>
 
