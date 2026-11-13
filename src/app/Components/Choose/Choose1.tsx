@@ -94,7 +94,7 @@ const Choose1 = () => {
                         </div>
                         <div className="col-lg-6">
                             <div className="feature-image wow img-custom-anim-left">
-                                <Image src="/assets/img/goa/dudhsagarimages.jpg" alt="Travellers enjoying a Goa beach holiday" width={636} height={577} />
+                                <Image src="/assets/img/goa/goa-family-tour.jpg" alt="Travellers enjoying a Goa beach holiday" width={636} height={577} />
                             </div>
                         </div>
                     </div>

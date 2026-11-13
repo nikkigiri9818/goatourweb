@@ -23,7 +23,7 @@ const page = () => {
     return (
         <div>
             <HeroBanner3/>
-<Form1 />  
+{/* <Form1 />   */}
             <TourPackagesSlider/>
 
             <About3/>

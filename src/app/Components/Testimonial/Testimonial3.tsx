@@ -115,7 +115,7 @@ const Testimonial3 = () => {
                 <div className="row g-4 align-items-center">
                     <div className="col-lg-6 wow fadeInUp wow" data-wow-delay=".3s">
                         <div className="testimonial-image">
-                            <Image src="/assets/img/goa/flyboardingimges.webp" alt="img" width={636} height={657}   />
+                            <Image src="/assets/img/goa/bungeejumping.jpg" alt="img" width={636} height={657}   />
                         </div>
                     </div>
                     <div className="col-lg-6">

@@ -256,10 +256,10 @@ const GoaPackageDetails = ({ pkg }) => {
                 ))}
               </div>
 
-              <div className="gpd-block">
+              {/* <div className="gpd-block">
                 <h2>Package Overview</h2>
                 <p>{pkg.overview}</p>
-              </div>
+              </div> */}
 
               <div className="gpd-block">
                 <h2>Package Price</h2>
@@ -279,14 +279,14 @@ const GoaPackageDetails = ({ pkg }) => {
                 </ul>
               </div>
 
-              <div className="gpd-block">
+              {/* <div className="gpd-block">
                 <h2>Not Included</h2>
                 <ul className="gpd-inc gpd-exc">
                   {exclusions.map((item) => (
                     <li key={item}><i className="fa-solid fa-circle-xmark"></i><span>{item}</span></li>
                   ))}
                 </ul>
-              </div>
+              </div> */}
 
               <div className="gpd-block">
                 <h2>Day-wise Itinerary</h2>

@@ -117,6 +117,149 @@ const GoaAdventureCard = ({ item, index = 0 }) => {
         @media (prefers-reduced-motion: reduce) {
           .gac, .gac-media img, .gac-btn i { animation: none; transition: none; }
         }
+
+
+.gpc-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  position: relative;
+  z-index: 3;
+}
+
+/* WhatsApp - Get Photos & Videos */
+.gpc-wa {
+  position: relative;
+  z-index: 3;
+  flex: 1;
+  min-width: 0;
+  height: 62px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid #103f49;
+  border-radius: 50px;
+  background: #103f49;
+  color: #fff;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: all .3s ease;
+}
+
+.gpc-wa i {
+  flex-shrink: 0;
+  color: #25d366;
+  font-size: 24px;
+}
+
+.gpc-wa:hover {
+  background: #0b3038;
+  border-color: #0b3038;
+  color: #fff;
+  transform: none;
+  box-shadow: 0 8px 20px rgba(16, 63, 73, .2);
+}
+
+/* Details Button */
+.gpc-btn {
+  position: relative;
+  z-index: 3;
+  flex: 0 0 auto;
+  height: 62px;
+  min-width: 145px;
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid #00a9df;
+  border-radius: 50px;
+  background: #fff;
+  color: #00a9df;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all .3s ease;
+}
+
+.gpc-btn i {
+  font-size: 17px;
+  transition: transform .3s ease;
+}
+
+.gpc-btn:hover {
+  background: #00a9df;
+  border-color: #00a9df;
+  color: #fff;
+  filter: none;
+  box-shadow: 0 8px 20px rgba(0, 169, 223, .2);
+}
+
+.gpc:hover .gpc-btn i,
+.gpc-btn:hover i {
+  transform: translateX(5px);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .gpc-actions {
+    gap: 8px;
+  }
+
+  .gpc-wa {
+    height: 54px;
+    padding: 0 12px;
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  .gpc-wa i {
+    font-size: 21px;
+  }
+
+  .gpc-btn {
+    height: 54px;
+    min-width: 115px;
+    padding: 0 16px;
+    gap: 8px;
+    font-size: 14px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 380px) {
+  .gpc-actions {
+    gap: 7px;
+  }
+
+  .gpc-wa {
+    height: 48px;
+    padding: 0 9px;
+    gap: 6px;
+    font-size: 12px;
+  }
+
+  .gpc-wa i {
+    font-size: 18px;
+  }
+
+  .gpc-btn {
+    height: 48px;
+    min-width: 95px;
+    padding: 0 12px;
+    gap: 6px;
+    font-size: 13px;
+  }
+}
+
+
+
       `}</style>
 
       <article className="gac" style={{ animationDelay: `${index * 0.12}s` }}>
@@ -144,14 +287,23 @@ const GoaAdventureCard = ({ item, index = 0 }) => {
                 <><b>Best price on WhatsApp</b> · pre-book for offers</>
               )}
             </div>
-            <div className="gac-actions">
-              <Link href={href} className="gac-btn">
-                View Details <i className="fa-solid fa-arrow-right"></i>
-              </Link>
-              {/* <a href={wa} target="_blank" rel="noopener noreferrer" className="gac-wa" aria-label={`Book ${item.title} on WhatsApp`}>
-                <i className="fa-brands fa-whatsapp"></i>
-              </a> */}
-            </div>
+           <div className="gpc-actions">
+  <a
+    href={wa}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="gpc-wa"
+    aria-label={`Get Photos and Videos for ${item.title} on WhatsApp`}
+  >
+    <i className="fa-brands fa-whatsapp"></i>
+    <span>Get Photos & Videos</span>
+  </a>
+
+  <Link href={href} className="gpc-btn">
+    <span>Details</span>
+    <i className="fa-solid fa-arrow-right"></i>
+  </Link>
+</div>
           </div>
         </div>
       </article>

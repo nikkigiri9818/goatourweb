@@ -11,8 +11,7 @@ const whatsappLink = (text) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 
 // Photo par halka parda (overlay) chahiye to 0 ki jagah 0.1 se 0.25 ke beech koi value likhein. 0 = koi parda nahi.
-const OVERLAY = 0;
-
+const OVERLAY = 0.28;
 // Slide timing (milli-second). Zoom ka time inhi se apne aap set hota hai.
 const AUTOPLAY_MS = 3500; // ek slide kitni der dikhegi
 const TRANSITION_MS = 800; // ek slide se doosri slide mein badalne ka time
@@ -24,7 +23,7 @@ const HeroBanner3 = () => {
   // whatsappLabel : doosra button, WhatsApp kholta hai (whatsappText = pehle se likha message)
   const heroContent = [
     {
-      img: '/assets/img/hero/herodesinetwo.png',
+      img: '/assets/img/hero/banner.jpg',
       subtitle: 'Your Goa Holiday, Planned For You',
       title: 'Welcome To <br><span class="hero-hl">Goa Holiday</span> Tour Packages',
       content:
@@ -34,7 +33,7 @@ const HeroBanner3 = () => {
       whatsappText: 'Hello, I want to know about your Goa tour packages.',
     },
     {
-      img: '/assets/img/hero/beach.png',
+      img: '/assets/img/goa/goabeach.jpg',
       subtitle: 'First Booking Offer',
       title: 'Get <span class="hero-hl">30%</span> Extra Discount <br>On First Booking',
       content:
@@ -81,8 +80,24 @@ const HeroBanner3 = () => {
           transform-origin: 50% 100%;
           transform: scale(1.1);
           will-change: transform;
-          box-shadow: inset 0 0 0 100vmax rgba(0, 25, 45, ${OVERLAY});
+          // box-shadow: inset 0 0 0 100vmax rgba(0, 25, 45, ${OVERLAY});
         }
+
+        .hero-section.hero-3 .hero-image { position: relative; }
+
+.hero-section.hero-3 .hero-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* upar ka hissa gehra, neeche curve ke paas dheere se gayab */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 25, 45, ${OVERLAY}) 0%,
+    rgba(0, 25, 45, ${OVERLAY}) 62%,
+    rgba(0, 25, 45, 0) 80%
+  );
+}
         .hero-section.hero-3 .slick-active .hero-image {
           animation: goaHeroZoom ${ZOOM_SECONDS}s linear forwards;
         }

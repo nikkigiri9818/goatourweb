@@ -39,7 +39,7 @@ const reasons = [
 ];
 
 const WhyChooseUs = ({
-  image = "/assets/img/goa/waterfallimges.jpg", // put your photo here (public folder)
+  image = "/assets/img/goa/nightimages.jpg", // put your photo here (public folder)
   imageSide = "left", // "left" or "right"
   contactHref = "/contact",
   packagesHref = "/goa-tour-package",
