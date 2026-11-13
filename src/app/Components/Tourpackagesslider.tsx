@@ -399,6 +399,8 @@ const TourPackagesSlider = () => {
           border: 1px solid #e3edf0;
           box-shadow: 0 10px 28px rgba(10, 47, 74, 0.08);
           transition: transform .4s ease, box-shadow .4s ease, border-color .4s ease;
+            font-family:  sans-serif;
+
         }
         .gpc3:hover {
           transform: translateY(-8px);
