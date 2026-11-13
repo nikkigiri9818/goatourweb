@@ -3,14 +3,14 @@ import React, { useState } from 'react';
 import GoaPackageCard from '../Components/Goapackagecard';
 import { goaPackages, whatsappLink } from '../Components/Goapakagesdata';
 
-const FILTERS = [
-  { key: 'all', label: 'All Packages' },
-  { key: 'couple', label: 'Couple' },
-  { key: 'family', label: 'Family' },
-  { key: 'friends', label: 'Friends' },
-  { key: 'honeymoon', label: 'Honeymoon' },
-  { key: 'premium', label: 'Premium' },
-];
+// const FILTERS = [
+//   { key: 'all', label: 'All Packages' },
+//   { key: 'couple', label: 'Couple' },
+//   { key: 'family', label: 'Family' },
+//   { key: 'friends', label: 'Friends' },
+//   { key: 'honeymoon', label: 'Honeymoon' },
+//   { key: 'premium', label: 'Premium' },
+// ];
 
 const GoaPackages = () => {
   const [active, setActive] = useState('all');
@@ -70,13 +70,13 @@ const GoaPackages = () => {
           <div className="section-title text-center">
             <span className="sub-title wow fadeInUp">Goa Tour Packages</span>
             <h2 className="wow fadeInUp" data-wow-delay=".3s">Choose Your Perfect Goa Holiday</h2>
-            <p className="wow fadeInUp" data-wow-delay=".5s">
+            {/* <p className="wow fadeInUp" data-wow-delay=".5s">
               Every package includes your beach stay, daily breakfast and airport or station transfers.
               Pick a plan, or message us to customise one around your dates and budget.
-            </p>
+            </p> */}
           </div>
 
-          <ul className="gpl-filters">
+          {/* <ul className="gpl-filters">
             {FILTERS.map((f) => (
               <li key={f.key}>
                 <button
@@ -88,7 +88,7 @@ const GoaPackages = () => {
                 </button>
               </li>
             ))}
-          </ul>
+          </ul> */}
 
           <div className="row g-4" key={active}>
             {visible.map((pkg, i) => (
