@@ -1,3 +1,4 @@
+
 "use client"
 import React, { useEffect } from 'react';
 import loadBackgroudImages from '../Common/loadBackgroudImages';
@@ -17,13 +18,22 @@ const AUTOPLAY_MS = 3500; // ek slide kitni der dikhegi
 const TRANSITION_MS = 800; // ek slide se doosri slide mein badalne ka time
 const ZOOM_SECONDS = (AUTOPLAY_MS + TRANSITION_MS) / 1000;
 
+// ---- MOBILE ke liye alag (portrait) photo ----
+const MOBILE_MAX = 767;        // is width tak (px) ki screen par mobile wali photo dikhegi
+const MOBILE_HEIGHT = 0;       // mobile par hero ki unchai (px). 0 = desktop wali 850px hi rahegi. Portrait ke liye 700 se 780 try kar sakte hain
+const MOBILE_FALLBACK = true;  // true: mobile wali photo na mile to desktop wali dikhegi (shuru mein safe). Photos rakhne ke baad false kar dein, isse mobile par data bachta hai
+const MOBILE_CSS_CURVE = false; // true: mobile par neeche ka safed curve CSS se banega (jab portrait photo mein curve bana hua na ho)
+
 const HeroBanner3 = () => {
 
+  // img        : desktop (landscape) photo
+  // imgMobile  : mobile (portrait) photo. Khali ('') chhodne par mobile par bhi desktop wali photo dikhegi
   // packagesLabel : pehla button, Goa tour packages page par jata hai
   // whatsappLabel : doosra button, WhatsApp kholta hai (whatsappText = pehle se likha message)
   const heroContent = [
     {
       img: '/assets/img/hero/one.png',
+      imgMobile: '/assets/img/hero/potrait.png',
       subtitle: 'Your Goa Holiday, Planned For You',
       title: 'Welcome To <br><span class="hero-hl">Goa Holiday</span> Tour Packages',
       content:
@@ -34,6 +44,7 @@ const HeroBanner3 = () => {
     },
     {
       img: '/assets/img/hero/two.png',
+      imgMobile: '/assets/img/hero/potrait2.jpg',
       subtitle: 'First Booking Offer',
       title: 'Get <span class="hero-hl">30%</span> Extra Discount <br>On First Booking',
       content:
@@ -72,32 +83,58 @@ const HeroBanner3 = () => {
   return (
     <>
       <style>{`
+        /* ---- photo: desktop par landscape, mobile par portrait ----
+           (data-background ki jagah CSS se lagti hai, taaki screen ke hisaab se badal sake) */
+        .hero-section.hero-3 .hero-image { background-image: var(--bg-d); }
+        @media (max-width: ${MOBILE_MAX}px) {
+          .hero-section.hero-3 .hero-image {
+            background-image: ${MOBILE_FALLBACK ? 'var(--bg-m), var(--bg-d)' : 'var(--bg-m)'};
+            background-size: cover;
+            background-position: center top;
+            ${MOBILE_HEIGHT ? `height: ${MOBILE_HEIGHT}px !important;` : ''}
+          }
+        }
+
         /* ---- photo ka halka zoom (Ken Burns). Text par asar nahi padta ----
            Zoom sirf us slide par chalta hai jo abhi dikh rahi hai, aur har baar
            1x se shuru hota hai. Isliye slide badalte hi nayi photo turant aati hai. */
         .hero-section.hero-3 .swiper-slide { overflow: hidden; }
         .hero-section.hero-3 .hero-image {
+          position: relative;
           transform-origin: 50% 100%;
           transform: scale(1.1);
           will-change: transform;
-          // box-shadow: inset 0 0 0 100vmax rgba(0, 25, 45, ${OVERLAY});
         }
 
-        .hero-section.hero-3 .hero-image { position: relative; }
+        /* halka parda: upar ka hissa gehra, neeche curve ke paas dheere se gayab */
+        .hero-section.hero-3 .hero-image::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          background: linear-gradient(
+            to bottom,
+            rgba(0, 25, 45, ${OVERLAY}) 0%,
+            rgba(0, 25, 45, ${OVERLAY}) 62%,
+            rgba(0, 25, 45, 0) 80%
+          );
+        }
 
-.hero-section.hero-3 .hero-image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  /* upar ka hissa gehra, neeche curve ke paas dheere se gayab */
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 25, 45, ${OVERLAY}) 0%,
-    rgba(0, 25, 45, ${OVERLAY}) 62%,
-    rgba(0, 25, 45, 0) 80%
-  );
-}
+        ${MOBILE_CSS_CURVE ? `
+        /* mobile par neeche ka safed curve (jab portrait photo mein bana hua na ho) */
+        @media (max-width: ${MOBILE_MAX}px) {
+          .hero-section.hero-3 .hero-image::before {
+            content: "";
+            position: absolute;
+            left: 0; right: 0; bottom: -1px;
+            height: 70px;
+            z-index: 2;
+            pointer-events: none;
+            background: linear-gradient(to bottom, #f2f3f4, #ffffff);
+            clip-path: polygon(3% 100%, 13% 8%, 14.5% 3%, 17% 0, 83% 0, 85.5% 3%, 87% 8%, 97% 100%);
+          }
+        }` : ''}
+
         .hero-section.hero-3 .slick-active .hero-image {
           animation: goaHeroZoom ${ZOOM_SECONDS}s linear forwards;
         }
@@ -106,7 +143,7 @@ const HeroBanner3 = () => {
           to   { transform: scale(1.1); }
         }
 
-        /* ---- bina overlay ke text saaf padhe: shadow + thoda mota text ---- */
+        /* ---- bina bhaari overlay ke text saaf padhe: shadow + thoda mota text ---- */
         .hero-section.hero-3 .hero-content h1 {
           font-size: clamp(34px, 4.4vw, 70px);
           line-height: 1.12;
@@ -130,10 +167,9 @@ const HeroBanner3 = () => {
 
         /* doosra (translucent) button photo par bhi saaf dikhe */
         .hero-3 .about-button .theme-btn.style-2 {
-          background:black !important;;
+          background: black !important;
           backdrop-filter: blur(6px);
         }
-          
 
         @media (prefers-reduced-motion: reduce) {
           .hero-section.hero-3 .hero-image,
@@ -147,7 +183,14 @@ const HeroBanner3 = () => {
             <Slider {...settings}>
               {heroContent.map((item, i) => (
                 <div key={i} className="swiper-slide">
-                  <div className="hero-image bg-cover" data-background={item.img} style={{ height: "850px" }}></div>
+                  <div
+                    className="hero-image bg-cover"
+                   style={{
+  height: "850px",
+  "--bg-d": `url(${item.img})`,
+  "--bg-m": `url(${item.imgMobile || item.img})`,
+} as React.CSSProperties}
+                  ></div>
                   <div className="container">
                     <div className="row justify-content-center">
                       <div className="col-lg-8">
@@ -192,9 +235,6 @@ const HeroBanner3 = () => {
 };
 
 export default HeroBanner3;
-
-
-
 
 
 // "use client";
