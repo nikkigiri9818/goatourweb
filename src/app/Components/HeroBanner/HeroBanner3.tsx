@@ -23,7 +23,7 @@ const HeroBanner3 = () => {
   // whatsappLabel : doosra button, WhatsApp kholta hai (whatsappText = pehle se likha message)
   const heroContent = [
     {
-      img: '/assets/img/hero/banner.jpg',
+      img: '/assets/img/hero/one.png',
       subtitle: 'Your Goa Holiday, Planned For You',
       title: 'Welcome To <br><span class="hero-hl">Goa Holiday</span> Tour Packages',
       content:
@@ -33,7 +33,7 @@ const HeroBanner3 = () => {
       whatsappText: 'Hello, I want to know about your Goa tour packages.',
     },
     {
-      img: '/assets/img/goa/goabeach.jpg',
+      img: '/assets/img/hero/two.png',
       subtitle: 'First Booking Offer',
       title: 'Get <span class="hero-hl">30%</span> Extra Discount <br>On First Booking',
       content:
