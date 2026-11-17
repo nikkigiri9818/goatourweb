@@ -8,7 +8,7 @@ import React, { useEffect, useState } from "react";
 //     process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "YOUR_WEB3FORMS_ACCESS_KEY";
 const ACCESS_KEY = "428ae924-7540-4cfd-b560-ea7da6daa37d"; // Web3Forms access key (form is key ke email par aayega)
 
-const POPUP_DELAY = 10000; // 10 seconds
+const POPUP_DELAY = 16000; // 10 seconds
 
 const ContactPopup = () => {
     const [open, setOpen] = useState(false);
