@@ -24,19 +24,51 @@ const GoaPackageDetails = ({ pkg }) => {
   const related = goaPackages.filter((p) => p.slug !== pkg.slug).slice(0, 3);
 
   // Form submit hone par WhatsApp khulta hai, sab details bhari hui.
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const text = [
-      `Hello, I want to enquire about the ${pkg.title}.`,
-      `Name: ${form.name}`,
-      `Phone: ${form.phone}`,
-      form.email ? `Email: ${form.email}` : null,
-      `Trip Date: ${form.date}`,
-      `Persons: ${form.persons}`,
-      form.message ? `Message: ${form.message}` : null,
-    ].filter(Boolean).join('\n');
-    window.open(whatsappLink(text), '_blank');
-  };
+  
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData();
+
+  formData.append('access_key', '428ae924-7540-4cfd-b560-ea7da6daa37d');
+  formData.append('subject', `New Goa Package Enquiry - ${pkg.title}`);
+  formData.append('Package', pkg.title);
+  formData.append('Name', form.name);
+  formData.append('Phone', form.phone);
+  formData.append('Email', form.email);
+  formData.append('Trip Date', form.date);
+  formData.append('Persons', form.persons);
+  formData.append('Message', form.message);
+
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData,
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      alert('Thank you! Your enquiry has been submitted successfully.');
+
+      setForm({
+        name: '',
+        phone: '',
+        email: '',
+        date: '',
+        persons: '2',
+        message: '',
+      });
+    } else {
+      alert(result.message || 'Something went wrong. Please try again.');
+    }
+  } catch (error) {
+    alert('Unable to submit your enquiry. Please try again.');
+  }
+};
+
+
 
   const facts = [
     { icon: 'fa-regular fa-clock', label: 'Duration', value: `${pkg.days} Days / ${pkg.nights} Nights` },
@@ -326,10 +358,21 @@ const GoaPackageDetails = ({ pkg }) => {
                   </div>
 
                   <div className="gpd-two">
-                    <div className="gpd-field">
-                      <label htmlFor="gpd-phone">Phone</label>
-                      <input id="gpd-phone" type="tel" placeholder="10 digit number" pattern="[0-9]{10}" value={form.phone} onChange={set('phone')} required />
-                    </div>
+                    
+<div className="gpd-field">
+  <label htmlFor="gpd-phone">Phone</label>
+  <input
+    id="gpd-phone"
+    type="tel"
+    placeholder="+91 9876543210"
+    pattern="(\+91[\s-]?)?[0-9]{10}"
+    title="Enter a valid 10-digit mobile number, with or without +91"
+    value={form.phone}
+    onChange={set('phone')}
+    required
+  />
+</div>
+
                     <div className="gpd-field">
                       <label htmlFor="gpd-persons">Persons</label>
                       <select id="gpd-persons" value={form.persons} onChange={set('persons')}>

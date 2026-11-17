@@ -1,8 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+
+// ---- Web3Forms access key (form is key ke email par aayega) ----
+const ACCESS_KEY = "428ae924-7540-4cfd-b560-ea7da6daa37d";
+const BRAND = "Goa Holiday Tours";
 
 const ContactUs = () => {
+    const [status, setStatus] = useState("idle"); // idle | sending | success | error
+    const [error, setError] = useState("");
+
     const tourPackages = [
         "Couple Goa Tour Package",
         "Solo Goa trip",
@@ -20,16 +27,53 @@ const ContactUs = () => {
         "Flyboarding",
     ];
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const formData = new FormData(e.target);
+        const form = e.target;
+        const formData = new FormData(form);
 
-        const data = Object.fromEntries(formData.entries());
+        // chhupa hua field: sirf bots bharte hain
+        if (formData.get("botcheck")) return;
 
-        console.log("Contact Form Data:", data);
+        setStatus("sending");
+        setError("");
 
-        alert("Thank you! Your enquiry has been submitted.");
+        const payload = {
+            access_key: ACCESS_KEY,
+            subject: `New Goa trip enquiry from ${formData.get("name")}`,
+            from_name: `${BRAND} Website`,
+            name: formData.get("name"),
+            email: formData.get("email"),
+            phone: formData.get("phone"),
+            trip_date: formData.get("date") || "Not given",
+            persons: formData.get("persons") || "Not given",
+            tour_package_type: formData.getAll("tourPackage").join(", ") || "Not selected",
+            activities: formData.getAll("activities").join(", ") || "Not selected",
+            message: formData.get("message") || "-",
+            source: "Contact page form",
+            page_url: window.location.href,
+        };
+
+        try {
+            const res = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: { "Content-Type": "application/json", Accept: "application/json" },
+                body: JSON.stringify(payload),
+            });
+            const data = await res.json();
+
+            if (data.success) {
+                setStatus("success");
+                form.reset();
+            } else {
+                setStatus("error");
+                setError(data.message || "Something went wrong. Please try again.");
+            }
+        } catch (err) {
+            setStatus("error");
+            setError("Network problem. Please check your internet and try again.");
+        }
     };
 
     return (
@@ -98,6 +142,8 @@ const ContactUs = () => {
                                         name="phone"
                                         id="phone"
                                         placeholder="Phone Number"
+                                        pattern="[0-9+\s\-]{10,15}"
+                                        title="Enter a valid phone number"
                                         required
                                     />
                                 </div>
@@ -204,15 +250,35 @@ const ContactUs = () => {
 
                             </div>
 
+                            {/* chhupa hua field: sirf bots bharte hain */}
+                            <input
+                                type="checkbox"
+                                name="botcheck"
+                                className="hp-field"
+                                tabIndex={-1}
+                                autoComplete="off"
+                            />
+
                             {/* Submit */}
                             <div className="submit-area">
 
                                 <button
                                     type="submit"
                                     className="theme-btn"
+                                    disabled={status === "sending"}
                                 >
-                                    Submit Message
+                                    {status === "sending" ? "Sending..." : "Submit Message"}
                                 </button>
+
+                                {status === "success" && (
+                                    <p className="form-msg success">
+                                        Thank you! Your enquiry has been submitted. Our team will contact you shortly.
+                                    </p>
+                                )}
+
+                                {status === "error" && (
+                                    <p className="form-msg error">{error}</p>
+                                )}
 
                             </div>
 
@@ -229,7 +295,7 @@ const ContactUs = () => {
                 .contact-section {
                     background: #123f49;
                     padding: 30px 20px;
-                    // width: 100%;
+                    /* width: 100%; */
                     color: #ffffff;
                 }
 
@@ -364,6 +430,14 @@ const ContactUs = () => {
                     border-radius: 22px;
                 }
 
+                .hp-field {
+                    position: absolute;
+                    left: -9999px;
+                    width: 1px;
+                    height: 1px;
+                    opacity: 0;
+                }
+
                 .submit-area {
                     margin-top: 30px;
                 }
@@ -387,6 +461,31 @@ const ContactUs = () => {
                 .theme-btn:hover {
                     background: #00bde8;
                     color: #123f49;
+                }
+
+                .theme-btn:disabled {
+                    opacity: 0.7;
+                    cursor: wait;
+                }
+
+                .form-msg {
+                    margin: 18px 0 0;
+                    padding: 14px 18px;
+                    border-radius: 16px;
+                    font-size: 15px;
+                    line-height: 1.6;
+                }
+
+                .form-msg.success {
+                    color: #d9fbff;
+                    background: rgba(0, 189, 232, 0.18);
+                    border: 1px solid rgba(0, 189, 232, 0.5);
+                }
+
+                .form-msg.error {
+                    color: #ffd7d2;
+                    background: rgba(224, 82, 77, 0.22);
+                    border: 1px solid rgba(224, 82, 77, 0.5);
                 }
 
                 @media (max-width: 768px) {

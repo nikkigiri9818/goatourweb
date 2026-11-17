@@ -9,7 +9,7 @@ const BRAND = 'Goa Holiday Tours';
 const WHATSAPP_NUMBER = '+91 7678464517';
 const CONTACT = {
     address: 'Holiday beach street, Khobra Vaddo, Calangute, Goa 403516',   // client ke footer wala address yahan likhein
-    email: 'test@gmail.com',     // client ka email yahan likhein
+    email: 'info@goaholidaytours.com',     // client ka email yahan likhein
     phones: [{ label: '+91 7678464517', tel: '917678464517' }],
 };
 const SOCIAL = {

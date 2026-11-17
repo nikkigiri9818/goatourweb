@@ -407,8 +407,8 @@ const Contact = () => {
 
                                     <div className="content">
                                         <h3>
-                                            <a href="mailto:info@tripco.com">
-                                                goa@tripco.com
+                                            <a href="mailto:info@goaholidaytours.com">
+                                            info@goaholidaytours.com
                                             </a>
                                         </h3>
 
@@ -436,7 +436,7 @@ const Contact = () => {
                                     <div className="content">
                                         <h3>
                                             <a href="tel:+917678464517">
-                                                Hot: +91 7678464517
+                                                Call: +91 7678464517
                                             </a>
                                         </h3>
 
@@ -469,13 +469,16 @@ const Contact = () => {
                     {/* Right Side - Google Map */}
                     <div className="contact-map-side">
                         <div className="google-map">
-                            <iframe
+                            {/* <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6678.7619084840835!2d144.9618311901502!3d-37.81450084255415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642b4758afc1d%3A0x3119cc820fdfc62e!2sEnvato!5e0!3m2!1sen!2sbd!4v1641984054261!5m2!1sen!2sbd"
                                 loading="lazy"
                                 title="Our Location"
                                 allowFullScreen
                                 referrerPolicy="no-referrer-when-downgrade"
-                            />
+                            /> */}
+
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3843.7823648455596!2d73.75455507828542!3d15.54979344652668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfea061dbc0d35%3A0x77c505383f8dce1b!2sKhobra%20Vaddo%2C%20Calangute%2C%20Goa%20403516!5e0!3m2!1sen!2sin!4v1794908162850!5m2!1sen!2sin"></iframe>
+                           
                         </div>
                     </div>
 
