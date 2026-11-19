@@ -64,7 +64,7 @@ const About3 = () => {
             <div className="row g-4 align-items-center">
               <div className="col-lg-6">
                 <div className="about-image wow fadeInUp wow" data-wow-delay=".3s">
-                  <Image src="/assets/img/hero/palolembeach.jpg" alt="Tourists enjoying a beach holiday in Goa" width={450} height={449} />
+                  <Image src="/assets/img/hero/Sunny Banana Boat Adventure.png" alt="Tourists enjoying a beach holiday in Goa" width={450} height={449} />
                   <div className="about-image-2 wow fadeInUp wow" data-wow-delay=".5s">
                     <Image src="/assets/img/goa/honmoonpakg.jpg" alt="Water sports and adventure activities in Goa" width={350} height={350} />
                     <div className="plane-shape float-bob-y">
